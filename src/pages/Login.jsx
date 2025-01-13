@@ -40,10 +40,10 @@ const Login = () => {
 
     signIn(email, password)
       .then(() => {
-        toast.success("Login Successfull!");
-        setEmail(email);
-        navigate(location.state ? location.state : "/");
         setError("");
+        setEmail(email);
+        toast.success("Login Successfull!");
+        navigate(location.state ? location.state : "/");
       })
       .catch(() => {
         setError("Invalid Username or Password..!");
@@ -93,7 +93,7 @@ const Login = () => {
             </label>
             <input
               type="password"
-              id="password"
+              required
               placeholder="Enter your password"
               className="w-full bg-transparent px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-secondary"
             />
@@ -105,6 +105,7 @@ const Login = () => {
               <input
                 type="checkbox"
                 className="form-checkbox h-4 w-4 bg-transparent rounded"
+                required
               />
               <span className="ml-2">Remember Me</span>
             </label>

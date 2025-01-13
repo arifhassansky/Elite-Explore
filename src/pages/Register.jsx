@@ -4,7 +4,7 @@ import { MdDelete } from "react-icons/md";
 import { imageUpload } from "../utils/ImageBbUpload";
 import useAuth from "../hooks/useAuth";
 import animationData from "../assets/register.json";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import loginBg from "../assets/login.jpg";
 import Lottie from "lottie-react";
@@ -34,6 +34,7 @@ const Register = () => {
         setError("Password does not match requirements");
         return;
       }
+      setError("");
       createUser(email, password)
         .then(() => {
           toast.success("Registration Successfull!");
@@ -43,7 +44,6 @@ const Register = () => {
             photoURL: uploadedPhoto,
           });
           navigate("/");
-          setError("");
         })
         .catch(() => {});
     }
@@ -60,11 +60,11 @@ const Register = () => {
   const steps = [
     {
       id: 1,
-      name: "account type",
+      name: "Email and Photo",
     },
     {
       id: 2,
-      name: "personal info",
+      name: "Email and Password",
     },
   ];
 
@@ -77,10 +77,10 @@ const Register = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="w-2/3 mx-auto grid place-items-center min-h-screen">
-        <div className="flex justify-center items-center gap-16">
+      <div className="md:w-2/3 mx-auto grid place-items-center min-h-screen ">
+        <div className="lg:flex justify-center items-center gap-10">
           {/* left side */}
-          <div className="w-1/3 mx-auto p-4 rounded-lg md:w-1/2 sm:w-3/4">
+          <div className="lg:w-1/2 flex justify-start mt-10">
             <Lottie
               className="w-full"
               animationData={animationData}
@@ -89,13 +89,16 @@ const Register = () => {
           </div>
 
           {/* Right side */}
-          <div className="sm:w-[70%] mx-auto backdrop-blur-2xl shadow-lg rounded-xl mt-20 p-6 sm:p-8 text-secondary">
+          <div className="lg:w-[70%] mx-auto backdrop-blur-2xl shadow-lg rounded-xl mt-20 p-6 sm:p-8 text-secondary">
             <p className="text-center font-bold text-3xl mb-12">
-              Join With Elite Travels
+              Join With Elite Travels!
             </p>
             <div className="w-full sm:flex-row flex-col flex items-center gap-[20px] sm:gap-[10px] px-8">
               {steps.map((stepItem, index) => (
-                <p key={index} className="flex items-center gap-[10px] w-full">
+                <div
+                  key={index}
+                  className="flex items-center gap-[10px] w-full"
+                >
                   <p
                     className={`${
                       step >= stepItem.id
@@ -112,13 +115,13 @@ const Register = () => {
                       } w-full h-[5px] rounded-full`}
                     ></div>
                   )}
-                </p>
+                </div>
               ))}
             </div>
 
             <form
               onSubmit={handleSubmit}
-              className="mt-4 w-full p-10 backdrop-blur-lg shadow-lg"
+              className="mt-4 w-full px-10 py-6 backdrop-blur-lg shadow-lg"
             >
               {step === 1 && (
                 <>
@@ -130,6 +133,7 @@ const Register = () => {
                         type="text"
                         onChange={(e) => setName(e.target.value)}
                         placeholder="John Doe"
+                        required
                         className="w-full bg-transparent px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-secondary"
                       />
                     </div>
@@ -137,7 +141,7 @@ const Register = () => {
                     <input
                       type="file"
                       name="image"
-                      id="image"
+                      required
                       className="hidden w-full bg-transparent px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-secondary"
                       onChange={(e) => {
                         setPhoto(e.target.files[0]);
@@ -180,26 +184,29 @@ const Register = () => {
                         type="email"
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="example@gmail.com"
+                        required
                         className="w-full bg-transparent px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-secondary"
                       />
                     </div>
                     <div className="w-full">
                       <label className="text-[1rem] text-gray-600">
                         Password
-                      </label>{" "}
+                      </label>
                       <br />
                       <input
                         type="password"
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="*********"
+                        required
                         className="w-full bg-transparent px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-secondary"
                       />
                     </div>
                   </div>
                 </>
               )}
+              <p className="text-red-600 pt-2">{error}</p>
 
-              <div className="w-full flex items-end justify-end mt-12">
+              <div className="w-full flex items-end justify-end mt-6">
                 <button
                   disabled={step <= 1}
                   type="button"
@@ -218,8 +225,18 @@ const Register = () => {
                   {step === 2 ? "Submit" : "Next"}
                 </button>
               </div>
+
+              {/* Sign In Link */}
+              <p className="mt-4 text-md text-center">
+                Already have an account?
+                <Link
+                  to="/login"
+                  className="text-primary font-medium hover:underline ml-2"
+                >
+                  login
+                </Link>
+              </p>
             </form>
-            <p className="text-center text-red-600">{error}</p>
           </div>
         </div>
       </div>

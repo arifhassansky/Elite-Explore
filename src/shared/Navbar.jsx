@@ -210,12 +210,15 @@ const Navbar = () => {
                     <p className="text-sm font-medium text-black">
                       {user?.displayName}
                     </p>
+                    <p className="text-xs font-medium text-gray-400">
+                      {user?.email}
+                    </p>
                   </div>
                   <hr />
                   <div className="p-2">
                     <button
                       onClick={handleLogout}
-                      className="w-full px-4 py-2 text-sm  bg-primary rounded hover:bg-secondary hover:text-black"
+                      className="w-full py-2 text-sm text-white bg-primary rounded hover:bg-secondary"
                     >
                       Logout
                     </button>
