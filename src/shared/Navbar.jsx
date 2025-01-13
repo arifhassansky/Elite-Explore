@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import logo2 from "../assets/logo2.png";
 // import authContext from "../context/AuthContext";
 
 const Navbar = () => {
@@ -37,10 +36,10 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? `font-black px-4 py-2 rounded no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
               : `px-4 py-2 rounded hover:text-primary no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
           }
         >
@@ -49,35 +48,35 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/rooms"
+          to="/community"
           className={({ isActive }) =>
             isActive
               ? `font-black px-4 py-2 rounded no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
               : `px-4 py-2 rounded hover:text-primary no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
           }
         >
-          Rooms
+          Community
         </NavLink>
       </li>
 
       <li>
         <NavLink
-          to="/myBookings"
+          to="/trips"
           className={({ isActive }) =>
             isActive
               ? `font-black px-4 py-2 rounded no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
               : `px-4 py-2 rounded hover:text-primary no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
           }
         >
-          My Bookings
+          Trips
         </NavLink>
       </li>
 
@@ -87,10 +86,10 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? `font-black px-4 py-2 rounded no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
               : `px-4 py-2 rounded hover:text-primary no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
           }
         >
@@ -103,10 +102,10 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? `font-black px-4 py-2 rounded no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
               : `px-4 py-2 rounded hover:text-primary no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
           }
         >
@@ -119,10 +118,10 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? `font-black px-4 py-2 rounded no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
               : `px-4 py-2 rounded hover:text-primary no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && ""
+                  scrolled ? "text-black" : pathname === "/" && "text-white"
                 }`
           }
         >
@@ -171,14 +170,18 @@ const Navbar = () => {
               </ul>
             )}
           </div>
-
-          <a href="/" className="w-36">
-            <img
-              className="w-full"
-              src={pathname === "/" ? (scrolled ? logo2 : logo) : logo2}
-              alt="Logo"
-            />
-          </a>
+          <div className="flex items-center h-14">
+            <a href="/" className="flex-shrink-0">
+              <img
+                className="h-14 w-auto"
+                src={logo}
+                alt="Elite Travels Logo"
+              />
+            </a>
+            <span className="text-2xl font-semibold text-white">
+              Elite Travels
+            </span>
+          </div>
         </div>
 
         <div className="navbar-center hidden lg:flex">
