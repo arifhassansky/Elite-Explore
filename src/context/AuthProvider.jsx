@@ -9,8 +9,6 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-
-import axios from "axios";
 import { GithubAuthProvider } from "firebase/auth";
 import auth from "../fireabase/firebase.init";
 
@@ -35,28 +33,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setEmail(currentUser?.email);
-
-      //   if (currentUser?.email) {
-      //     const user = { email: currentUser?.email };
-      //     axios
-      //       .post(`${import.meta.env.VITE_URL}/jwt`, user, {
-      //         withCredentials: true,
-      //       })
-      //       .then((res) => {
-      //         setLoading(false);
-      //         console.log(res.data);
-      //       });
-      //   } else {
-      //     axios
-      //       .post(
-      //         `${import.meta.env.VITE_URL}/logout`,
-      //         {},
-      //         { withCredentials: true }
-      //       )
-      //       .then(() => {
-      //         setLoading(false);
-      //       });
-      //   }
+      setLoading(false);
     });
 
     return () => {

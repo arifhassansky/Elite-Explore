@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
+import useAuth from "../hooks/useAuth";
 // import authContext from "../context/AuthContext";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  //   const { user, logOut } = useContext(authContext);
+  const { user, logOut } = useAuth();
   const { pathname } = useLocation();
 
-  //   const handleLogout = async () => {
-  //     await logOut();
-  //   };
+  const handleLogout = async () => {
+    await logOut();
+  };
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
   const toggleDropdownProfile = () => setProfileOpen(!profileOpen);
@@ -178,7 +179,11 @@ const Navbar = () => {
                 alt="Elite Travels Logo"
               />
             </a>
-            <span className="text-2xl font-semibold text-white">
+            <span
+              className={`text-2xl font-semibold ${
+                pathname === "/" ? "text-white" : "text-black"
+              } `}
+            >
               Elite Travels
             </span>
           </div>
@@ -189,59 +194,51 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end  text-lg">
-          {/* {user ? ( */}
-          <div className="group relative inline-block">
-            <img
-              className="w-12 h-12 rounded-full object-cover cursor-pointer"
-              // src={user?.photoURL}
-              referrerPolicy="no-referrer"
-              alt="Profile Image"
-              onClick={toggleDropdownProfile}
-            />
+          {user ? (
+            <div className="group relative inline-block">
+              <img
+                className="w-12 h-12 rounded-full object-cover cursor-pointer"
+                src={user?.photoURL}
+                referrerPolicy="no-referrer"
+                alt="Profile Image"
+                onClick={toggleDropdownProfile}
+              />
 
-            {profileOpen && (
-              <div className="absolute z-[1000] right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
-                <div className="p-4">
-                  <p className="text-sm font-medium text-black">
-                    {/* {user?.displayName} */}
-                  </p>
+              {profileOpen && (
+                <div className="absolute z-[1000] right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
+                  <div className="p-4">
+                    <p className="text-sm font-medium text-black">
+                      {user?.displayName}
+                    </p>
+                  </div>
+                  <hr />
+                  <div className="p-2">
+                    <button
+                      onClick={handleLogout}
+                      className="w-full px-4 py-2 text-sm  bg-primary rounded hover:bg-secondary hover:text-black"
+                    >
+                      Logout
+                    </button>
+                  </div>
                 </div>
-                <hr />
-                <div className="p-2">
-                  <button
-                    //   onClick={handleLogout}
-                    className="w-full px-4 py-2 text-sm  bg-primary rounded hover:bg-secondary hover:text-black"
-                  >
-                    Logout
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-          {/* ) : ( */}
-          <NavLink
-            to="/login"
-            className={({ isActive }) =>
-              isActive
-                ? `font-black px-4 py-2 rounded no-underline ${
-                    scrolled
-                      ? "text-black"
-                      : pathname === "/"
-                      ? ""
-                      : "text-black"
-                  }`
-                : `px-4 py-2 rounded hover:text-primary no-underline ${
-                    scrolled
-                      ? "text-black"
-                      : pathname === "/"
-                      ? ""
-                      : "text-black"
-                  }`
-            }
-          >
-            Login
-          </NavLink>
-          {/* )} */}
+              )}
+            </div>
+          ) : (
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `px-4 py-2 rounded no-underline ${
+                  isActive
+                    ? "font-semibold text-primary"
+                    : scrolled
+                    ? "hover:text-primary text-primary"
+                    : pathname === "/" && "hover:text-primary text-white"
+                }`
+              }
+            >
+              Login
+            </NavLink>
+          )}
         </div>
       </div>
     </div>
