@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // icons
-import { FaChevronDown } from "react-icons/fa6";
+import { FaChevronDown, FaLocationDot } from "react-icons/fa6";
 
 const Accordion = ({ destination }) => {
   const [isaccordionOpen, setIsaccordionOpen] = useState(0);
@@ -15,14 +15,17 @@ const Accordion = ({ destination }) => {
       {destination?.tour_plan?.map((accordion, index) => (
         <article key={index} className="border-b border-[#e5eaf2] rounded py-3">
           <div
-            className="flex gap-2 cursor-pointer items-center justify-between w-full "
+            className="relative flex gap-2 cursor-pointer items-center justify-between w-full "
             onClick={() => handleClick(index)}
           >
-            <h2 className="font-semibold text-xl">{accordion.title}</h2>
+            <h2 className="font-semibold text-xl ml-32">{accordion.title}</h2>
+            <h3 className="absolute flex items-center gap-1 bg-blue-400 px-6 py-1 rounded-sm">
+              <FaLocationDot className="text-red-500" /> {accordion.day}
+            </h3>
             <p>
               <FaChevronDown
                 className={` text-secondary transition-all duration-300 ${
-                  isaccordionOpen === index && "rotate-[180deg] !text-[#3B9DF8]"
+                  isaccordionOpen === index && "rotate-[180deg] !text-primary"
                 }`}
               />
             </p>
@@ -34,7 +37,7 @@ const Accordion = ({ destination }) => {
                 : "grid-rows-[0fr] opacity-0"
             }`}
           >
-            <p className="text-[#424242] text-[0.9rem] overflow-hidden">
+            <p className="text-secondary text-sm overflow-hidden px-6">
               {accordion.activities}
             </p>
           </div>

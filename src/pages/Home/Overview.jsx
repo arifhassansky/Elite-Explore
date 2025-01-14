@@ -1,5 +1,3 @@
-import overviewVideo from "../../assets/video/overview.mp4";
-
 const Overview = () => {
   return (
     <section className="bg-gray-100 py-12">
@@ -19,14 +17,13 @@ const Overview = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Video Section */}
           <div className="w-full lg:w-1/2 h-full">
-            <video
-              className="rounded-lg shadow-lg w-full h-[380px] object-cover"
-              controls
-              poster="https://i.ibb.co.com/ZYNmQmK/overview.jpg"
-            >
-              <source src={overviewVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <iframe
+              src="https://player.vimeo.com/video/1046917834?autoplay=0&title=0&byline=0&portrait=0"
+              className="rounded-lg shadow-lg w-full h-[380px]"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
 
           {/* Image Grid */}
