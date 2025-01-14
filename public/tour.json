@@ -250,7 +250,34 @@
     "type": "Cultural",
     "title": "Sonargaon – The Ancient Capital",
     "price": 6000,
-    "description": "Sonargaon, located near Dhaka, was the capital of Bengal during the medieval period. The historical city is home to numerous ancient structures, including palaces, mosques, and colonial-era buildings. The Sonargaon Folk Art and Craft Museum is a must-visit to understand the cultural heritage of the region. This destination offers a glimpse into the rich history of Bangladesh, with a focus on Bengali culture, art, and architecture."
+    "description": "Sonargaon, located near Dhaka, was the capital of Bengal during the medieval period. The historical city is home to numerous ancient structures, including palaces, mosques, and colonial-era buildings. The Sonargaon Folk Art and Craft Museum is a must-visit to understand the cultural heritage of the region. This destination offers a glimpse into the rich history of Bangladesh, with a focus on Bengali culture, art, and architecture.",
+    "tour_plan": [
+      {
+        "day": "Day 1",
+        "title": "Arrival and Introduction to Sonargaon",
+        "activities": "Arrive in Dhaka in the morning, and take a scenic drive to Sonargaon, which is just 27 km away. Check into your hotel, then enjoy a refreshing rest. In the afternoon, head to the **Sonargaon Folk Art and Craft Museum**, where you will explore collections of traditional Bengali folk art, handicrafts, and textiles. The museum provides a comprehensive understanding of the region’s rich culture. Afterward, stroll through the local markets and explore the vibrant life of the town, where you’ll find local artisans selling handwoven fabrics, clay pots, and other crafts. You can also interact with the locals to learn about their crafts. Enjoy a traditional Bengali dinner at a local restaurant, featuring regional specialties like **panta bhat**, **bhuna khichuri**, and **hilsa fish**. Return to your hotel and relax."
+      },
+      {
+        "day": "Day 2",
+        "title": "Exploring Sonargaon’s Historical Monuments",
+        "activities": "After breakfast, head out to explore Sonargaon’s fascinating historical sites. Start with **Panam City**, an ancient and atmospheric town with colonial-era architecture. Wander through its narrow streets, where you’ll see beautiful mansions built by wealthy merchants. Admire the intricate brickwork and grand facades of buildings that were once the homes of traders. Then, visit the **Goaldi Mosque**, one of the oldest mosques in the region, built in the 15th century. This mosque’s design reflects Islamic architecture from the Sultanate period, and it is considered a fine example of Bengal’s Islamic history. In the afternoon, visit the **Sonargaon Palace Complex**, which was once the royal residence of the rulers of Bengal. Although in partial ruins, the palace grounds still tell the story of the royal heritage and power of the region. Wander through the grounds and admire the palace's remains, including the bathhouses, gardens, and other architectural features. After exploring the site, enjoy a traditional Bengali lunch, and spend the evening relaxing in Sonargaon."
+      },
+      {
+        "day": "Day 3",
+        "title": "Cultural Immersion and Crafts Workshop",
+        "activities": "Today, you will immerse yourself in the traditional arts and crafts of Sonargaon. Start the day with a visit to a nearby village to meet local artisans who specialize in traditional Bengali crafts like **weaving**, **pottery**, and **brasswork**. Watch the artisans create intricate pieces, and learn about the techniques passed down through generations. You can even try your hand at making your own clay pot or weaving a small piece of fabric under their guidance. Next, participate in a **Bengali cooking class** where a local chef will teach you how to prepare classic Bengali dishes like **aloo posto** (potatoes with poppy seeds), **bhuna khichuri**, and **mishti** (sweets). This hands-on experience will introduce you to the unique spices and flavors of Bengali cuisine. After lunch, take a leisurely stroll through the **Sonargaon Bazaar**, where you can buy authentic Bengali crafts, including **brass jewelry**, **handwoven saris**, and **wood carvings**. In the evening, enjoy a **folk music performance** by local musicians, featuring traditional **baul** songs and **dhol** drumming. This will give you a deeper understanding of the cultural rhythms and melodies that have shaped Bengali music for centuries."
+      },
+      {
+        "day": "Day 4",
+        "title": "Day Trip to Nearby Historical Sites",
+        "activities": "On this day, you will take a day trip to nearby historical and archaeological sites that are connected to Sonargaon’s rich heritage. Begin with a visit to the **Bagerhat**, a UNESCO World Heritage site located about 3 hours from Sonargaon. This ancient city is home to a large number of historic Islamic structures, including the **Sixty Dome Mosque**, one of the largest and most impressive mosques in South Asia. You’ll also explore the **Bagerhat Museum**, which showcases the region's architectural history. After lunch, head to **Shat Gumbad Mosque**, a smaller mosque built in the 15th century, which is an excellent example of Bengal’s Sultanate period architecture. On your return to Sonargaon, stop by **Bagerhat’s Tomb of Khan Jahan Ali**, a prominent figure in the region's history. Return to Sonargaon in the evening, and relax at your hotel."
+      },
+      {
+        "day": "Day 5",
+        "title": "Relaxation and Departure",
+        "activities": "On your final day in Sonargaon, take some time to relax and reflect on your journey. After breakfast, enjoy a peaceful morning walk around the town. Revisit your favorite spots from the tour, or simply relax at a local café sipping on **Bengali tea** while observing the serene environment. If you missed any attractions earlier, you can explore them now at a more leisurely pace. Afterward, visit a local café for one last meal before checking out of your hotel. Stop by the local shops to pick up any last-minute souvenirs such as **handcrafted textiles**, **brass items**, or **traditional Bengali jewelry**. Before your departure, stop by the **local temple** or **shrine**, paying your respects and reflecting on the peaceful atmosphere of the town. In the afternoon, take your transport back to Dhaka, carrying unforgettable memories of your cultural and historical adventure in Sonargaon."
+      }
+    ]
   },
   {
     "photo": [

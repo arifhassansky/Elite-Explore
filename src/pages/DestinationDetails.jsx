@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import DetailsImgSlider from "../components/DetailsImgSlider";
-import Accordion from "../components/Accordion";
 
 const DestinationDetails = () => {
   const destination = useLoaderData();
@@ -50,7 +49,15 @@ const DestinationDetails = () => {
         <h3 className="text-4xl text-center font-bold underline">
           Our Tour Plans
         </h3>
-        <Accordion destination={destination} />
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {destination?.tour_plan?.map((plan, idx) => (
+            <div key={idx}>
+              <h2>{plan.day}</h2>
+              <h3>{plan.title}</h3>
+              <p>{plan.activities}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
