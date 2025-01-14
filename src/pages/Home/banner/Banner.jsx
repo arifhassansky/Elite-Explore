@@ -55,7 +55,7 @@ const Banner = () => {
   };
 
   return (
-    <section className="banner px-8 h-[100vh]  relative bg-[#07332F] text-white">
+    <section className="banner px-8 h-[80vh]  relative bg-secondary text-white">
       {banners.map(
         (banner, bannerIndex) =>
           bannerIndex === index && (
@@ -67,16 +67,11 @@ const Banner = () => {
                 <p className="text-xl py-3 md:text-2xl lg:text-4xl font-medium animate__animated animate__fadeInLeft">
                   {banner.text}
                 </p>
-                <button
-                  className="px-8 animate__animated animate__fadeInLeft mt-3 md:mt-5 bg-[#F5A481] py-3 relative shadow-lg before:absolute 
-before:top-0 before:left-0 before:w-0 before:h-0 before:border-l-[4px] before:border-t-[4px] before:border-transparent 
-hover:before:w-full hover:before:h-full hover:before:border-white hover:before:transition-all hover:before:duration-500 
-after:border-r-[4px] after:border-b-[4px] after:border-transparent hover:after:border-white 
-after:absolute after:bottom-0 after:right-0 after:w-0 
-after:h-0 hover:after:w-full hover:after:h-full hover:after:transition-all hover:after:duration-500"
-                >
-                  {" "}
-                  Explore More
+
+                <button className="relative px-6 py-3 font-bold text-white rounded-lg group mt-4 ">
+                  <span className="absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-primary ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                  <span className="absolute inset-0 w-full h-full transition duration-300 transform translate-x-1 translate-y-1 bg-purple-950 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen"></span>
+                  <span className="relative">Explore More</span>
                 </button>
               </div>
               <div className="md:w-1/2 pt-4 md:pt-0 grid grid-cols-3 gap-4 pr-8 animate__animated animate__fadeInRight">

@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Irfan Khan",
+    "photo": "https://i.ibb.co.com/gFg88Xt/470175899-1674601013099659-7328407391152462961-n.jpg",
+    "specialty": "Cultural Tour Guide",
+    "experience": "5 years",
+    "bio": "Irfan is an experienced tour guide with a deep knowledge of the rich history and culture of Bangladesh. He specializes in cultural tours to heritage sites and local villages.",
+    "contact": "+8801734567892",
+    "rating": 4.7
+  },
+  {
+    "name": "Bristy Akter",
+    "photo": "https://i.ibb.co.com/ZzhDBd0/bristy.jpg",
+    "specialty": "Nature and Eco-tourism",
+    "experience": "4 years",
+    "bio": "Bristy offers eco-friendly tours to explore the natural beauty of Bangladesh, from the Sundarbans to the hill tracts of Chittagong. She is passionate about wildlife conservation and sustainable travel.",
+    "contact": "+8801987654321",
+    "rating": 4.8
+  },
+  {
+    "name": "Rabby Hasan",
+    "photo": "https://i.ibb.co.com/XJjMLW5/rabby.jpg",
+    "specialty": "Adventure and Trekking",
+    "experience": "6 years",
+    "bio": "Rabby is an expert trekking guide with years of experience taking tourists through the lush trails of Bangladesh's forests and mountains, including the famous Nafakhum Waterfall trek.",
+    "contact": "+880123454321",
+    "rating": 4.9
+  },
+  {
+    "name": "Surela Akter",
+    "photo": "https://i.ibb.co.com/Cw6nq3F/surela.jpg",
+    "specialty": "Heritage and Historical Sites",
+    "experience": "7 years",
+    "bio": "Surela is a passionate guide who specializes in historical sites. She provides fascinating insights into the ancient architecture and history of Bangladesh's major landmarks.",
+    "contact": "+880876543210",
+    "rating": 4.6
+  },
+  {
+    "name": "Jahid Hasan",
+    "photo": "https://i.ibb.co.com/yqyP4xg/sakub.jpg",
+    "specialty": "Adventure Sports",
+    "experience": "3 years",
+    "bio": "Jahid is a certified adventure sports guide, skilled in guiding travelers through exciting activities like kayaking, rock climbing, and paragliding in the scenic locations of Bangladesh.",
+    "contact": "+8801122334455",
+    "rating": 4.5
+  },
+  {
+    "name": "Nabila Jahan",
+    "photo": "https://i.ibb.co.com/NKTdQgy/vabi.jpg",
+    "specialty": "Cultural Immersion and Cuisine",
+    "experience": "5 years",
+    "bio": "Nabila offers unique experiences, immersing travelers in local culture through cooking classes, visits to local markets, and visits to traditional family homes for authentic Bengali meals.",
+    "contact": "+8809988776655",
+    "rating": 4.8
+  },
+  {
+    "name": "Jahid Hasan",
+    "photo": "https://i.ibb.co.com/Mk8jDmF/jahid.jpg",
+    "specialty": "Historical Monuments and Museums",
+    "experience": "8 years",
+    "bio": "Jahid is an expert in guiding tourists through Bangladesh's historical monuments and museums, offering deep insights into the nation's heritage, art, and architecture.",
+    "contact": "+8801234789654",
+    "rating": 4.7
+  },
+  {
+    "name": "Dua Rahman",
+    "photo": "https://i.ibb.co.com/8DwG0R3/dua.jpg",
+    "specialty": "Luxury and Leisure Travel",
+    "experience": "10 years",
+    "bio": "Dua specializes in luxury travel, offering personalized services to affluent tourists who wish to explore Bangladesh in comfort and style, including high-end hotels and exclusive experiences.",
+    "contact": "+8809876543210",
+    "rating": 5.0
+  }
+]

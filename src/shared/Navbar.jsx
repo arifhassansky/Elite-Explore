@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import useAuth from "../hooks/useAuth";
 // import authContext from "../context/AuthContext";
@@ -180,9 +180,9 @@ const Navbar = () => {
               />
             </a>
             <span
-              className={`text-2xl font-semibold ${
-                pathname === "/" ? "text-white" : "text-black"
-              } `}
+              className={`text-2xl font-semibold transition-all duration-300 ${
+                pathname === "/" && scrolled ? "text-black" : "text-white"
+              }`}
             >
               Elite Travels
             </span>
@@ -214,8 +214,25 @@ const Navbar = () => {
                       {user?.email}
                     </p>
                   </div>
+
+                  <div className="px-2">
+                    <Link to="/dashboard">
+                      <button className="w-full text-left py-2 px-2 text-sm hover:text-white rounded hover:bg-primary">
+                        Dashboard
+                      </button>
+                    </Link>
+                  </div>
+
+                  <div className="px-2">
+                    <Link to="/offer">
+                      <button className="w-full text-left py-2 px-2 text-sm hover:text-white rounded hover:bg-primary">
+                        Offer
+                      </button>
+                    </Link>
+                  </div>
+
                   <hr />
-                  <div className="p-2">
+                  <div className="px-2 py-4">
                     <button
                       onClick={handleLogout}
                       className="w-full py-2 text-sm text-white bg-primary rounded hover:bg-secondary"

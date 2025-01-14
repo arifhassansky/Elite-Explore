@@ -141,6 +141,7 @@ const Register = () => {
                     <input
                       type="file"
                       name="image"
+                      id="image"
                       required
                       className="hidden w-full bg-transparent px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-secondary"
                       onChange={(e) => {
