@@ -28,12 +28,15 @@ const BookingModal = ({
 
     const bookingDetails = {
       packageName: destination.title,
-      userName: user.displayName,
-      userEmail: user.email,
-      userImageURL: user.photoURL,
-      price: destination.price,
+      packageId: destination._id,
+      guide: selectedGuide.value,
       tourDate,
-      selectedGuide,
+      user: {
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      },
+      price: destination.price,
       status: "pending",
     };
 
@@ -125,6 +128,7 @@ const BookingModal = ({
                   onChange={(date) => setTourDate(date)}
                   className="border-[#e5eaf2] border rounded-md outline-none py-2 w-full px-4 focus:border-[#3B9DF8] transition-colors duration-300"
                   placeholderText="Select a date"
+                  minDate={new Date()}
                 />
                 <FaCalendarAlt className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none" />
               </div>

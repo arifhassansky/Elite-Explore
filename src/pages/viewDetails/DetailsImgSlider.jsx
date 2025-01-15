@@ -24,10 +24,10 @@ const DetailsImgSlider = ({ images }) => {
           {/* Tags */}
           <div className="absolute top-4 left-4 z-10 space-y-2">
             <span className="inline-block px-2 py-1 text-xs font-semibold bg-black text-white">
-              NEW
+              New Tour Package
             </span>
             <span className="inline-block px-2 py-1 text-xs font-semibold bg-emerald-500 text-white">
-              -50%
+              50% Off
             </span>
           </div>
 
@@ -40,14 +40,14 @@ const DetailsImgSlider = ({ images }) => {
             />
             <button
               onClick={previousImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-[#0FABCA] hover:text-white"
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-primary hover:text-white"
               aria-label="Previous image"
             >
               <BiChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-[#0FABCA] hover:text-white"
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-primary hover:text-white"
               aria-label="Next image"
             >
               <BiChevronRight className="w-6 h-6" />

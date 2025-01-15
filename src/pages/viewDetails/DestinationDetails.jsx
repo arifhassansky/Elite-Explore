@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import TourGuideCard from "../../components/TourGuideCard";
 import BookingModal from "./BookingModal";
+import { toast } from "react-toastify";
 
 const DestinationDetails = () => {
   const destination = useLoaderData();
@@ -20,9 +21,16 @@ const DestinationDetails = () => {
   }, [axiosPublic]);
 
   // Handle booking logic
-  const handleBookNow = (bookingDetails) => {
-    console.log("Booking Details:", bookingDetails);
-    setModalOpen(false);
+  const handleBookNow = async (bookingDetails) => {
+    if (!bookingDetails.tourDate || !bookingDetails.guide) {
+      toast.error("Please select a tour date and guide.");
+      return;
+    }
+    // send data to database
+    const { data } = await axiosPublic.post("/booking", bookingDetails);
+    if (data.insertedId) {
+      setModalOpen(false);
+    }
   };
 
   return (
@@ -111,14 +119,18 @@ const DestinationDetails = () => {
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
             <h3 className="text-lg font-semibold mb-4">Confirm your Booking</h3>
             <p className="mb-4">
-              Your booking has been successfully placed with a pending status.
+              Your have successfully booked
+              <span className="text-green-600 font-semibold">
+                {destination.title}
+              </span>
+              . Please proceed with the payment to confirm your booking.
             </p>
             <div className="flex justify-around space-x-4">
               <button
                 onClick={() => setIsBookingConfirmed(false)}
-                className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg shadow-sm hover:bg-gray-400"
+                className="px-4 py-2 bg-red-500 text-white rounded-lg shadow-sm hover:bg-red-600"
               >
-                Close
+                Later
               </button>
               <button className="px-4 py-2 bg-green-600 text-white hover:bg-green-700 rounded-lg shadow-sm">
                 Confirm
