@@ -1,5 +1,5 @@
-import Card from "../components/Card";
-import useTrips from "../hooks/useTrips";
+import Card from "../../components/Card";
+import useTrips from "../../hooks/useTrips";
 const Trips = () => {
   const [tours] = useTrips();
   return (

@@ -1,13 +1,17 @@
 import PropTypes from "prop-types";
 import { FaPhoneVolume } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const TourGuideCard = ({ guide }) => {
-  const { photo, name, specialty, contact } = guide;
+  const { _id, photo, name, specialty, contact } = guide;
 
   return (
-    <div className="flex flex-col items-center text-center p-4">
+    <Link
+      to={`/profile/${_id}`}
+      className="flex flex-col items-center text-center"
+    >
       {/* Profile Image */}
-      <div className="relative w-40 h-40">
+      <div className="relative w-36 h-36">
         <img
           src={photo}
           alt={name}
@@ -21,7 +25,7 @@ const TourGuideCard = ({ guide }) => {
       <p className="mt-2 text-gray-400 text-sm flex items-center gap-2">
         <FaPhoneVolume className="text-primary" /> {contact}
       </p>
-    </div>
+    </Link>
   );
 };
 

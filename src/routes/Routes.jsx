@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
-import Home from "../pages/Home/Home";
-import Register from "../pages/Register";
-import Login from "../pages/Login";
-import DestinationDetails from "../pages/DestinationDetails";
-import Trips from "../pages/Trips";
+import Home from "../pages/Home/home/Home";
+import Trips from "../pages/trips/Trips";
+import DestinationDetails from "../pages/viewDetails/DestinationDetails";
+import Register from "../pages/register/Register";
+import Login from "../pages/login/Login";
+
 const router = createBrowserRouter([
   {
     path: "/",

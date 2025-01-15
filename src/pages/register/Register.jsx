@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { FiUpload } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
-import { imageUpload } from "../utils/ImageBbUpload";
-import useAuth from "../hooks/useAuth";
-import animationData from "../assets/register.json";
+import { imageUpload } from "../../utils/ImageBbUpload";
+import useAuth from "../../hooks/useAuth";
+import animationData from "../../assets/register.json";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import loginBg from "../assets/login.jpg";
+import loginBg from "../../assets/login.jpg";
 import Lottie from "lottie-react";
 
 const Register = () => {

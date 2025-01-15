@@ -1,7 +1,7 @@
-import Banner from "./banner/Banner";
-import Overview from "./Overview";
-import Tourism from "./Tourism";
-import TouristStories from "./TouristStories";
+import Banner from "../banner/Banner";
+import Overview from "../Overview";
+import Tourism from "../Tourism";
+import TouristStories from "../TouristStories";
 
 const Home = () => {
   return (

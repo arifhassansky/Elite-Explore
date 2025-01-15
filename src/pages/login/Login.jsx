@@ -1,9 +1,9 @@
-import loginBg from "../assets/login.jpg";
-import animationData from "../assets/login.json";
+import loginBg from "../../assets/login.jpg";
+import animationData from "../../assets/login.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import Lottie from "lottie-react";
 
