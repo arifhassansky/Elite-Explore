@@ -3,11 +3,11 @@ import Sidebar from "./sidebar";
 
 const Dashboard = () => {
   return (
-    <div className="flex gap-4">
+    <div className="flex">
       <div>
         <Sidebar />
       </div>
-      <div>
+      <div className="w-full">
         <Outlet />
       </div>
     </div>

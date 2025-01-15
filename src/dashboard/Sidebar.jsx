@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import logo from "../assets/logo.png";
 
 // react icons
@@ -11,28 +11,16 @@ import {
 import { GoSidebarCollapse } from "react-icons/go";
 import { CiLogout } from "react-icons/ci";
 import useAuth from "../hooks/useAuth";
-import useAxiosPublic from "../hooks/useAxiosPublic";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaAddressBook, FaHandshakeAngle, FaUsers } from "react-icons/fa6";
 import { FaHome, FaUserEdit, FaUsersCog } from "react-icons/fa";
+import useLoadUser from "../hooks/useLoadUser";
 
 const Sidebar = () => {
   const [isCollapse, setIsCollapse] = useState(true);
-
-  const { user: authUser, logOut } = useAuth();
-  const [user, setUser] = useState();
-  const axiosPublic = useAxiosPublic();
+  const { logOut } = useAuth();
+  const [user] = useLoadUser();
   const navigate = useNavigate();
-
-  console.log(user?.role);
-
-  useEffect(() => {
-    const getUser = async () => {
-      const { data } = await axiosPublic.get(`/user/${authUser?.email}`);
-      setUser(data);
-    };
-    getUser();
-  }, [axiosPublic, authUser?.email]);
 
   const handleLogout = () => {
     logOut().then(() => {
@@ -42,7 +30,9 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`bg-secondary transition-all duration-300 ease min-h-screen`}
+      className={`bg-secondary transition-all duration-300 ease min-h-screen ${
+        isCollapse && "w-56 md:w-64 lg:w-72"
+      }`}
     >
       {/* logo and collapse */}
       <div

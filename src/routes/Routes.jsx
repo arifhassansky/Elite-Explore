@@ -7,6 +7,7 @@ import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import Community from "../pages/community/Community";
 import Dashboard from "../dashboard/Dashboard";
+import Profile from "../dashboard/Profile";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,12 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <Dashboard />,
+    children: [
+      {
+        path: "/dashboard/manage-profile",
+        element: <Profile />,
+      },
+    ],
   },
 ]);
 export default router;
