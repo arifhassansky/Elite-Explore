@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
 import { FacebookShareButton } from "react-share";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { FaShareAlt } from "react-icons/fa";
+import { toast } from "react-toastify";
+import StorySlider from "../../components/StorySlider";
 
 const TouristStories = () => {
   const { user } = useAuth();
@@ -12,7 +14,7 @@ const TouristStories = () => {
   const axiosPublic = useAxiosPublic();
 
   useEffect(() => {
-    axiosPublic.get("/stories").then((res) => {
+    axiosPublic.get("/randomStories").then((res) => {
       setStories(res.data);
     });
   }, [axiosPublic]);
@@ -21,7 +23,7 @@ const TouristStories = () => {
     if (!user) {
       navigate("/login");
     } else {
-      alert("You need to set up a shareable link to enable sharing!");
+      toast.error("You need to set up a shareable link to enable sharing!");
     }
   };
 
@@ -33,48 +35,42 @@ const TouristStories = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stories.map((story) => (
-            <div
-              key={story._id}
-              className="relative bg-white rounded-lg shadow-lg overflow-hidden group"
-            >
-              {/* Image */}
-              <img
-                src={story.photo}
-                alt={story.title}
-                className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+          {stories.map((story) => {
+            const images = story.photo || [];
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-blue-500 bg-opacity-60 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h3 className="text-xl font-semibold text-white">
-                  {story.title}
-                </h3>
-                <p className="text-white leading-relaxed">{story.excerpt}</p>
+            return (
+              <div
+                key={story._id}
+                className="relative bg-white shadow-lg overflow-hidden"
+              >
+                {/* Story Slider Component */}
+                <StorySlider images={images} />
 
                 {/* Share Icon */}
-                <div className="absolute top-4 right-4 hover:bg-white hover:text-primary flex justify-center items-center p-2 bg-gray-200 rounded-full">
+                <div className="absolute top-4 right-4 flex justify-center items-center p-2 text-white hover:text-black bg-primary hover:bg-white rounded-full duration-300">
                   {user ? (
                     <FacebookShareButton
                       url={`https://EliteExplore.com/stories/${story.id}`}
                       quote={story.title}
                       hashtag="#TouristStory"
-                      className="text-white bg-primary p-2 rounded-full shadow hover:bg-primary-dark transition"
                     >
-                      <FaShareAlt size={20} />
+                      <FaShareAlt />
                     </FacebookShareButton>
                   ) : (
-                    <button
-                      onClick={handleShare}
-                      className="text-white bg-primary p-2 rounded-full shadow hover:bg-primary-dark transition"
-                    >
-                      <FaShareAlt className="text-white" size={30} />
+                    <button onClick={handleShare}>
+                      <FaShareAlt className="text-white" />
                     </button>
                   )}
                 </div>
+
+                {/* Persistent Overlay */}
+                <div className="absolute inset-0 top-56 bg-black/20 px-2 text-white">
+                  <h3 className="text-lg font-semibold ">{story.title}</h3>
+                  <p className="leading-tight">{story.excerpt}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="flex justify-center space-x-4 mt-8">

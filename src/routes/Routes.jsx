@@ -5,6 +5,7 @@ import Trips from "../pages/trips/Trips";
 import DestinationDetails from "../pages/viewDetails/DestinationDetails";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
+import Community from "../pages/community/Community";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "community",
+        element: <Community />,
       },
       {
         path: "trips",
