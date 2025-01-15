@@ -184,7 +184,7 @@ const Navbar = () => {
                 pathname === "/" && scrolled ? "text-black" : "text-white"
               }`}
             >
-              Elite Travels
+              Elite Explore
             </span>
           </div>
         </div>

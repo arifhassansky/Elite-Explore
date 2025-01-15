@@ -46,15 +46,25 @@ const DestinationDetails = () => {
 
       {/* accordion */}
       <div className="mt-16">
-        <h3 className="text-4xl text-center font-bold underline">
+        <h3 className="text-4xl text-center font-bold mb-6 relative">
           Our Tour Plans
+          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary mt-2"></span>
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="space-y-6">
           {destination?.tour_plan?.map((plan, idx) => (
-            <div key={idx}>
-              <h2>{plan.day}</h2>
-              <h3>{plan.title}</h3>
-              <p>{plan.activities}</p>
+            <div
+              key={idx}
+              className="bg-gradient-to-r from-orange-50 to-white shadow-xl rounded-2xl p-8"
+            >
+              <span className="text-2xl font-semibold bg-secondary text-white px-6 py-1 rounded-md">
+                {plan.day}
+              </span>
+              <h3 className="text-xl font-semibold text-primary my-4">
+                {plan.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed text-base">
+                {plan.activities}
+              </p>
             </div>
           ))}
         </div>

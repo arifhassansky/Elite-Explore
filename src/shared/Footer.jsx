@@ -15,7 +15,7 @@ const Footer = () => {
                   alt="Elite Travels Logo"
                 />
               </a>
-              <span className="text-2xl font-semibold">Elite Travels</span>
+              <span className="text-2xl font-semibold">Elite Explore</span>
             </div>
             <p className="ml-3 text-lg">
               Experience the finest rooms for your relaxation. Join Roomify for
