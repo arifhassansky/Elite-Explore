@@ -8,12 +8,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import loginBg from "../../assets/login.jpg";
 import Lottie from "lottie-react";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const axiosPublic = useAxiosPublic();
 
   const [password, setPassword] = useState("");
   const [photo, setPhoto] = useState(null);
@@ -36,14 +38,26 @@ const Register = () => {
       }
       setError("");
       createUser(email, password)
-        .then(() => {
-          toast.success("Registration Successfull!");
-          setEmail(email);
-          updateUserProfile({
-            displayName: name,
-            photoURL: uploadedPhoto,
-          });
-          navigate("/");
+        .then(async () => {
+          // send userData to database
+          const userData = {
+            name,
+            email,
+            photo: uploadedPhoto,
+            role: "user",
+          };
+          const { data } = await axiosPublic.post("/users", userData);
+          console.log(data);
+
+          if (data.insertedId) {
+            toast.success("Registration Successfull!");
+            setEmail(email);
+            updateUserProfile({
+              displayName: name,
+              photoURL: uploadedPhoto,
+            });
+            navigate("/");
+          }
         })
         .catch(() => {});
     }

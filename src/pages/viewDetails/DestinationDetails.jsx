@@ -6,6 +6,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import TourGuideCard from "../../components/TourGuideCard";
 import BookingModal from "./BookingModal";
 import { toast } from "react-toastify";
+import Button from "../../components/Button";
 
 const DestinationDetails = () => {
   const destination = useLoaderData();
@@ -56,12 +57,13 @@ const DestinationDetails = () => {
               {destination.description}
             </p>
           </div>
-          <button
-            className="w-full py-3 px-4 rounded-lg bg-primary text-white hover:bg-secondary"
+
+          <div
+            className="text-center w-1/2 mx-auto"
             onClick={() => setModalOpen(true)}
           >
-            Book!
-          </button>
+            <Button text="Book Now!" />
+          </div>
         </div>
       </div>
 

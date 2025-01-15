@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import Lottie from "lottie-react";
+import Button from "../../components/Button";
 
 const Login = () => {
   const { signIn, googleSignIn, githubSignIn, setEmail } = useAuth();
@@ -93,6 +94,7 @@ const Login = () => {
             </label>
             <input
               type="password"
+              name="password"
               required
               placeholder="Enter your password"
               className="w-full bg-transparent px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-secondary"
@@ -105,7 +107,6 @@ const Login = () => {
               <input
                 type="checkbox"
                 className="form-checkbox h-4 w-4 bg-transparent rounded"
-                required
               />
               <span className="ml-2">Remember Me</span>
             </label>
@@ -115,12 +116,7 @@ const Login = () => {
           </div>
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-secondary transition duration-300"
-          >
-            Sign In
-          </button>
+          <Button text="Sign In" />
           <p className="my-2 text-red-600 text-center">{error}</p>
         </form>
         <div className="divider">or</div>
