@@ -4,23 +4,36 @@ import profileBg from "../assets/profile-bg.jpg";
 import Button from "../components/Button";
 import useLoadUser from "../hooks/useLoadUser";
 import { imageUpload } from "../utils/ImageBbUpload";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import { toast } from "react-toastify";
 
 const Profile = () => {
-  const [user] = useLoadUser();
+  const [user, refetch] = useLoadUser();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editableName, setEditableName] = useState("");
   const [photo, setPhoto] = useState(null);
+  const axiosPublic = useAxiosPublic();
 
-  const handleSave = async () => {
+  const handleUpdate = async () => {
     let uploadedPhotoUrl = user?.photo;
-
     if (photo) {
       uploadedPhotoUrl = await imageUpload(photo);
-    }
 
-    setIsModalOpen(false);
-    console.log("Updated Name:", editableName);
-    console.log("Updated Photo URL:", uploadedPhotoUrl);
+      const updateInfo = {
+        name: editableName,
+        photo: uploadedPhotoUrl,
+      };
+
+      const { data } = await axiosPublic.patch(
+        `/update-profile/${user._id}`,
+        updateInfo
+      );
+      if (data.modifiedCount > 0) {
+        refetch();
+        setIsModalOpen(false);
+        toast.success("Profile updated successfully");
+      }
+    }
   };
 
   return (
@@ -101,9 +114,9 @@ const Profile = () => {
               </button>
               <button
                 className="px-4 py-2 bg-primary text-white rounded-lg shadow-sm"
-                onClick={handleSave}
+                onClick={handleUpdate}
               >
-                Save
+                Update
               </button>
             </div>
           </div>

@@ -97,12 +97,20 @@ const Sidebar = () => {
               isCollapse ? "w-14" : "w-8"
             } cursor-pointer rounded-full object-cover`}
           />
+
           <h3
             className={`${
               isCollapse ? "inline" : "hidden"
             }  text-gray-300 font-[500]`}
           >
             {user?.name}
+          </h3>
+          <h3
+            className={`${
+              isCollapse ? "inline" : "hidden"
+            }  text-gray-300 bg-primary text-center ml-4 px-2 text-sm rounded-3xl font-meduim`}
+          >
+            {user?.role}
           </h3>
         </div>
       </div>
