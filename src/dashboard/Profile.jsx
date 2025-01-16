@@ -6,6 +6,7 @@ import useLoadUser from "../hooks/useLoadUser";
 import { imageUpload } from "../utils/ImageBbUpload";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { toast } from "react-toastify";
+import SecondBtn from "../components/SecondBtn";
 
 const Profile = () => {
   const [user, refetch] = useLoadUser();
@@ -49,7 +50,7 @@ const Profile = () => {
     >
       <div className="text-center">
         <h2 className="font-semibold text-xl md:text-4xl mb-2">
-          Welcome, {user.name}!
+          Welcome, <span className="text-primary">{user.name}!</span>
         </h2>
         <p className="text-gray-500 text-xl tracking-wider">
           Below, you can view and update your profile information.
@@ -69,7 +70,7 @@ const Profile = () => {
 
           {user.role === "user" && (
             <Link className="mt-4" to="/joinAsGuide">
-              <Button text="Apply For Tour Guide" />
+              <SecondBtn text="Apply For Tour Guide" />
             </Link>
           )}
         </div>

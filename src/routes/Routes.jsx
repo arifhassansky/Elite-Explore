@@ -8,6 +8,7 @@ import Login from "../pages/login/Login";
 import Community from "../pages/community/Community";
 import Dashboard from "../dashboard/Dashboard";
 import Profile from "../dashboard/Profile";
+import MyBookings from "../dashboard/MyBookings";
 
 const router = createBrowserRouter([
   {
@@ -46,9 +47,14 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: <Dashboard />,
     children: [
+      // user routes
       {
         path: "/dashboard/manage-profile",
         element: <Profile />,
+      },
+      {
+        path: "/dashboard/my-bookings",
+        element: <MyBookings />,
       },
     ],
   },
