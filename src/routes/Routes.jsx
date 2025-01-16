@@ -9,6 +9,7 @@ import Community from "../pages/community/Community";
 import Dashboard from "../dashboard/Dashboard";
 import Profile from "../dashboard/Profile";
 import MyBookings from "../dashboard/MyBookings";
+import AddStory from "../dashboard/AddStory";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/my-bookings",
         element: <MyBookings />,
+      },
+      {
+        path: "/dashboard/add-stories",
+        element: <AddStory />,
       },
     ],
   },
