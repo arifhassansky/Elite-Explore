@@ -3,12 +3,19 @@ import { FiUpload } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import { imageUpload } from "../utils/ImageBbUpload";
 import Button from "../components/Button";
+import useAuth from "../hooks/useAuth";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const AddStory = () => {
   const [title, setTitle] = useState("");
   const [excerpt, setExcerpt] = useState("");
   const [images, setImages] = useState([]);
   const [imageLinks, setImageLinks] = useState([]);
+  const { user } = useAuth();
+  const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
 
   // Handle selecting image
   const handleImageChange = (e) => {
@@ -39,12 +46,28 @@ const AddStory = () => {
       images.map((image) => imageUpload(image))
     );
 
+    const resetForm = () => {
+      setTitle("");
+      setExcerpt("");
+      setImages([]);
+      setImageLinks([]);
+    };
+
     const storyData = {
       title,
       excerpt,
-      photos: imageUrls,
+      photo: imageUrls,
+      name: user?.displayName,
+      email: user?.email,
     };
-    console.log(storyData);
+    const { data } = await axiosPublic.post("/add-story", storyData);
+    if (data.insertedId) {
+      toast.success("Story added successfully");
+      resetForm();
+      navigate("/dashboard/manage-stories");
+    } else {
+      toast.error("Failed to add story");
+    }
   };
 
   return (
@@ -66,12 +89,19 @@ const AddStory = () => {
           <label className="block font-semibold mb-1">Description</label>
           <textarea
             value={excerpt}
-            onChange={(e) => setExcerpt(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value.length <= 100) {
+                setExcerpt(e.target.value);
+              }
+            }}
             className="border-gray-300 border rounded-xl outline-none px-4 w-full mt-1 py-3 focus:border-primary transition-colors duration-300"
             rows="4"
-            placeholder="Write your story description here"
+            placeholder="Write your story description here (Max 100 characters)"
             required
           ></textarea>
+          <p className="text-sm text-gray-500">
+            {excerpt.length}/100 characters
+          </p>
         </div>
         <div className="mb-2">
           <label className="block font-semibold mb-1">Upload Images</label>

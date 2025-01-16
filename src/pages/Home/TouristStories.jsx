@@ -64,7 +64,7 @@ const TouristStories = () => {
                 </div>
 
                 {/* Persistent Overlay */}
-                <div className="absolute inset-0 top-56 bg-black/20 px-2 text-white">
+                <div className="absolute inset-0 top-60 bg-black/20 px-2 text-white">
                   <h3 className="text-lg font-semibold ">{story.title}</h3>
                   <p className="leading-tight">{story.excerpt}</p>
                 </div>

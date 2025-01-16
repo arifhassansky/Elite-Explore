@@ -23,7 +23,7 @@ const StorySlider = ({ images }) => {
       <img
         src={images[currentImageIndex]}
         alt="Tourist Story"
-        className="w-full h-80 object-cover transition-transform duration-500"
+        className="w-full h-96 object-cover transition-transform duration-500"
       />
 
       {/* Navigation Buttons */}

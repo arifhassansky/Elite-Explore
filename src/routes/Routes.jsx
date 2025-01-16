@@ -10,6 +10,7 @@ import Dashboard from "../dashboard/Dashboard";
 import Profile from "../dashboard/Profile";
 import MyBookings from "../dashboard/MyBookings";
 import AddStory from "../dashboard/AddStory";
+import ManageStories from "../dashboard/ManageStories";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/add-stories",
         element: <AddStory />,
+      },
+      {
+        path: "/dashboard/manage-stories",
+        element: <ManageStories />,
       },
     ],
   },
