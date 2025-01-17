@@ -126,7 +126,7 @@ const Sidebar = () => {
           <div className="mt-3 flex flex-col gap-[5px]">
             {/* manage profile */}
             <NavLink
-              to="manage-profile"
+              to="/dashboard"
               className={`${
                 isCollapse ? "justify-between" : "justify-center"
               } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
@@ -272,7 +272,7 @@ const Sidebar = () => {
           <div className="mt-3 flex flex-col gap-[5px]">
             {/* manage profile */}
             <NavLink
-              to="manage-profile"
+              to="/dashboard"
               className={`${
                 isCollapse ? "justify-between" : "justify-center"
               } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
@@ -389,7 +389,7 @@ const Sidebar = () => {
           <div className="mt-3 flex flex-col gap-[5px]">
             {/* manage profile */}
             <NavLink
-              to="manage-profile"
+              to="/dashboard"
               className={`${
                 isCollapse ? "justify-between" : "justify-center"
               } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}

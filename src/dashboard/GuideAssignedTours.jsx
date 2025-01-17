@@ -1,7 +1,7 @@
 import useAuth from "../hooks/useAuth";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import { format } from "date-fns";
+import moment from "moment";
 import { toast } from "react-toastify";
 
 const GuideAssignedTours = () => {
@@ -89,7 +89,7 @@ const GuideAssignedTours = () => {
               <tr key={tour.id}>
                 <td>{tour?.packageName}</td>
                 <td>{tour?.user?.name}</td>
-                <td>{format(new Date(tour?.tourDate), "MMMM d, yyyy")}</td>
+                <td>{moment(tour.tourDate).format("YYYY-MM-DD")}</td>
                 <td>{`$${tour.price}`}</td>
                 <td>
                   <span

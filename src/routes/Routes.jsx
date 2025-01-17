@@ -14,6 +14,9 @@ import ManageStories from "../dashboard/ManageStories";
 import EditStory from "../dashboard/EditStory";
 import JoinAsGuide from "../dashboard/JoinAsGuide";
 import GuideAssignedTours from "../dashboard/GuideAssignedTours";
+import AddPackageForm from "../dashboard/AddPackageForm";
+import ManageUsers from "../dashboard/ManageUsers";
+import ManageCandidates from "../dashboard/ManageCandidates";
 
 const router = createBrowserRouter([
   {
@@ -54,7 +57,7 @@ const router = createBrowserRouter([
     children: [
       // user routes
       {
-        path: "/dashboard/manage-profile",
+        path: "/dashboard",
         element: <Profile />,
       },
       {
@@ -81,6 +84,19 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/my-assigned-tours",
         element: <GuideAssignedTours />,
+      },
+      // admin routes
+      {
+        path: "/dashboard/add-package",
+        element: <AddPackageForm />,
+      },
+      {
+        path: "/dashboard/manage-users",
+        element: <ManageUsers />,
+      },
+      {
+        path: "/dashboard/manage-candidates",
+        element: <ManageCandidates />,
       },
     ],
   },

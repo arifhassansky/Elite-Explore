@@ -13,6 +13,7 @@ const EditStory = () => {
   const [images, setImages] = useState([]); // New images (uploaded by the user)
   const [imageLinks, setImageLinks] = useState([]); // Existing images (from the backend)
   const [removedPhotos, setRemovedPhotos] = useState([]); // Images to be removed
+  const [initialImageLinks, setInitialImageLinks] = useState([]);
 
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ const EditStory = () => {
         setTitle(data.title);
         setExcerpt(data.excerpt);
         setImageLinks(data.photo);
+        setInitialImageLinks(data.photo); // Store the initial images
       }
     };
     fetchStoryData();
@@ -60,28 +62,35 @@ const EditStory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Upload new images
     const newImageUrls = await Promise.all(
-      images.map((image) => imageUpload(image)) // Upload the new images
+      images.map((image) => imageUpload(image))
     );
 
-    // Send all the data (including removed photos)
+    const removedPhotos = initialImageLinks.filter(
+      (link) => !imageLinks.includes(link)
+    );
+
     const storyData = {
       title,
       excerpt,
       newPhotos: newImageUrls,
-      removedPhotos, // Include removed photos in the payload
+      removedPhotos,
     };
 
-    const { data } = await axiosPublic.put(`/update-story/${id}`, storyData);
-    if (data.message) {
-      toast.success("Story updated successfully");
-      navigate("/dashboard/manage-stories");
-    } else {
+    try {
+      const { data } = await axiosPublic.put(`/update-story/${id}`, storyData);
+
+      if (data.message) {
+        toast.success(data.message);
+        navigate("/dashboard/manage-stories");
+      } else {
+        toast.error(data.error || "Failed to update story");
+      }
+    } catch (error) {
+      console.error("Error updating story:", error);
       toast.error("Failed to update story");
     }
   };
-
   return (
     <div className="max-w-2xl mx-auto my-3 px-10 py-4 border rounded-xl shadow-2xl">
       <h2 className="text-2xl font-semibold mb-2 text-center uppercase">
