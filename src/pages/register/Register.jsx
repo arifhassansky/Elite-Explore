@@ -10,7 +10,7 @@ import loginBg from "../../assets/login.jpg";
 import Lottie from "lottie-react";
 
 const Register = () => {
-  const { createUser, updateUserProfile, saveToDb } = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -37,16 +37,6 @@ const Register = () => {
       setError("");
       createUser(email, password)
         .then(() => {
-          // add user to database
-          const userData = {
-            name: name,
-            email: email,
-            photo: uploadedPhoto,
-            role: "user",
-            timeStamp: Date.now(),
-          };
-          saveToDb(userData);
-
           toast.success("Registration Successfull!");
           setEmail(email);
           updateUserProfile({

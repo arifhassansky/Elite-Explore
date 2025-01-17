@@ -3,7 +3,6 @@ import { FiUpload } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import { imageUpload } from "../utils/ImageBbUpload";
 import { toast } from "react-toastify";
-import axios from "axios";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const AddPackageForm = () => {

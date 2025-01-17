@@ -31,16 +31,23 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const saveToDb = async (userInfo) => {
-    const { data } = await axiosPublic.post("/users", userInfo);
-    console.log({ data }, { userInfo });
-  };
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       setEmail(currentUser?.email);
 
+      if (currentUser) {
+        const userData = {
+          name: currentUser?.displayName,
+          email: currentUser?.email,
+          photo: currentUser?.photoURL,
+          role: "user",
+          timeStamp: Date.now(),
+        };
+
+        const { data } = await axiosPublic.post("/users", userData);
+        console.log({ data }, { userData });
+      }
       setLoading(false);
     });
 
@@ -77,7 +84,6 @@ const AuthProvider = ({ children }) => {
     githubSignIn,
     setEmail,
     updateUserProfile,
-    saveToDb,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

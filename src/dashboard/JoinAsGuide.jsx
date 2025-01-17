@@ -1,18 +1,31 @@
 import { useState } from "react";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+import useLoadUser from "../hooks/useLoadUser";
 
 const JoinAsGuide = () => {
+  const axiosPublic = useAxiosPublic();
+  const [user] = useLoadUser();
   const [title, setTitle] = useState("");
   const [whyTourGuide, setWhyTourGuide] = useState("");
   const [cvLink, setCvLink] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can handle the form data submission here (e.g., send it to an API)
-    console.log("Form Submitted:", { title, whyTourGuide, cvLink });
 
-    // Show the success modal after form submission
-    setShowModal(true);
+    const applicationInfo = {
+      email: user?.email,
+      title,
+      whyTourGuide,
+      cvLink,
+    };
+    const { data } = await axiosPublic.post("/applications", applicationInfo);
+    if (data.insertedId) {
+      setShowModal(true);
+      setTitle("");
+      setWhyTourGuide("");
+      setCvLink("");
+    }
   };
 
   const closeModal = () => {
