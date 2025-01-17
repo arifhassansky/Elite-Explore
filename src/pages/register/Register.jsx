@@ -8,14 +8,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import loginBg from "../../assets/login.jpg";
 import Lottie from "lottie-react";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useAuth();
+  const { createUser, updateUserProfile, saveToDb } = useAuth();
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const axiosPublic = useAxiosPublic();
 
   const [password, setPassword] = useState("");
   const [photo, setPhoto] = useState(null);
@@ -38,26 +36,24 @@ const Register = () => {
       }
       setError("");
       createUser(email, password)
-        .then(async () => {
-          // send userData to database
+        .then(() => {
+          // add user to database
           const userData = {
-            name,
-            email,
+            name: name,
+            email: email,
             photo: uploadedPhoto,
             role: "user",
+            timeStamp: Date.now(),
           };
-          const { data } = await axiosPublic.post("/users", userData);
-          console.log(data);
+          saveToDb(userData);
 
-          if (data.insertedId) {
-            toast.success("Registration Successfull!");
-            setEmail(email);
-            updateUserProfile({
-              displayName: name,
-              photoURL: uploadedPhoto,
-            });
-            navigate("/");
-          }
+          toast.success("Registration Successfull!");
+          setEmail(email);
+          updateUserProfile({
+            displayName: name,
+            photoURL: uploadedPhoto,
+          });
+          navigate("/");
         })
         .catch(() => {});
     }

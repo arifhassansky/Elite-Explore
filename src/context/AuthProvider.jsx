@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import { GithubAuthProvider } from "firebase/auth";
 import auth from "../fireabase/firebase.init";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
@@ -20,6 +21,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState(null);
   const [loading, setLoading] = useState(true);
+  const axiosPublic = useAxiosPublic();
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -29,17 +31,23 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const saveToDb = async (userInfo) => {
+    const { data } = await axiosPublic.post("/users", userInfo);
+    console.log({ data }, { userInfo });
+  };
+
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       setEmail(currentUser?.email);
+
       setLoading(false);
     });
 
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [axiosPublic]);
 
   const updateUserProfile = (updatedData) => {
     return updateProfile(auth.currentUser, updatedData);
@@ -69,6 +77,7 @@ const AuthProvider = ({ children }) => {
     githubSignIn,
     setEmail,
     updateUserProfile,
+    saveToDb,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

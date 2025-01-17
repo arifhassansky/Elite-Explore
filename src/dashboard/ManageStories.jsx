@@ -6,6 +6,7 @@ import { FaEdit, FaShareAlt, FaTrash } from "react-icons/fa";
 import StorySlider from "../components/StorySlider";
 import SectionTitle from "../components/SectionTitle";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const ManageStories = () => {
   const axiosPublic = useAxiosPublic();
@@ -88,9 +89,9 @@ const ManageStories = () => {
 
               {/* Edit Button */}
               <div className="absolute top-4 right-14 flex justify-center items-center p-2 hover:text-white bg-white hover:bg-blue-600 rounded-full duration-300">
-                <button>
+                <Link to={`/dashboard/edit-story/${story._id}`}>
                   <FaEdit />
-                </button>
+                </Link>
               </div>
 
               {/* Share Button */}

@@ -11,6 +11,9 @@ import Profile from "../dashboard/Profile";
 import MyBookings from "../dashboard/MyBookings";
 import AddStory from "../dashboard/AddStory";
 import ManageStories from "../dashboard/ManageStories";
+import EditStory from "../dashboard/EditStory";
+import JoinAsGuide from "../dashboard/JoinAsGuide";
+import GuideAssignedTours from "../dashboard/GuideAssignedTours";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +68,19 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/manage-stories",
         element: <ManageStories />,
+      },
+      {
+        path: "/dashboard/edit-story/:id",
+        element: <EditStory />,
+      },
+      {
+        path: "/dashboard/join-guide",
+        element: <JoinAsGuide />,
+      },
+      // guide routes
+      {
+        path: "/dashboard/my-assigned-tours",
+        element: <GuideAssignedTours />,
       },
     ],
   },

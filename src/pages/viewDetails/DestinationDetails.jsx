@@ -31,6 +31,7 @@ const DestinationDetails = () => {
     const { data } = await axiosPublic.post("/booking", bookingDetails);
     if (data.insertedId) {
       setModalOpen(false);
+      setIsBookingConfirmed(true);
     }
   };
 
@@ -111,7 +112,7 @@ const DestinationDetails = () => {
           guides={guides}
           onClose={() => setModalOpen(false)}
           onBook={handleBookNow}
-          setIsBookingConfirmed={setIsBookingConfirmed}
+          // setIsBookingConfirmed={setIsBookingConfirmed}
         />
       )}
 

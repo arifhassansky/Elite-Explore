@@ -6,6 +6,7 @@
     "experience": "5 years",
     "bio": "Irfan is an experienced tour guide with a deep knowledge of the rich history and culture of Bangladesh. He specializes in cultural tours to heritage sites and local villages.",
     "contact": "+8801734567892",
+    "email": "irfan.khan@gmail.com",
     "rating": 4.7
   },
   {
@@ -15,6 +16,7 @@
     "experience": "4 years",
     "bio": "Bristy offers eco-friendly tours to explore the natural beauty of Bangladesh, from the Sundarbans to the hill tracts of Chittagong. She is passionate about wildlife conservation and sustainable travel.",
     "contact": "+8801987654321",
+    "email": "bristy.akter@gmail.com",
     "rating": 4.8
   },
   {
@@ -24,6 +26,7 @@
     "experience": "6 years",
     "bio": "Rabby is an expert trekking guide with years of experience taking tourists through the lush trails of Bangladesh's forests and mountains, including the famous Nafakhum Waterfall trek.",
     "contact": "+880123454321",
+    "email": "rabby.hasan@gmail.com",
     "rating": 4.9
   },
   {
@@ -33,6 +36,7 @@
     "experience": "7 years",
     "bio": "Surela is a passionate guide who specializes in historical sites. She provides fascinating insights into the ancient architecture and history of Bangladesh's major landmarks.",
     "contact": "+880876543210",
+    "email": "surela.akter@gmail.com",
     "rating": 4.6
   },
   {
@@ -42,6 +46,7 @@
     "experience": "3 years",
     "bio": "Jahid is a certified adventure sports guide, skilled in guiding travelers through exciting activities like kayaking, rock climbing, and paragliding in the scenic locations of Bangladesh.",
     "contact": "+8801122334455",
+    "email": "jahid.hasan.sports@gmail.com",
     "rating": 4.5
   },
   {
@@ -51,6 +56,7 @@
     "experience": "5 years",
     "bio": "Nabila offers unique experiences, immersing travelers in local culture through cooking classes, visits to local markets, and visits to traditional family homes for authentic Bengali meals.",
     "contact": "+8809988776655",
+    "email": "nabila.jahan@gmail.com",
     "rating": 4.8
   },
   {
@@ -60,6 +66,7 @@
     "experience": "8 years",
     "bio": "Jahid is an expert in guiding tourists through Bangladesh's historical monuments and museums, offering deep insights into the nation's heritage, art, and architecture.",
     "contact": "+8801234789654",
+    "email": "jahid.hasan.museums@gmail.com",
     "rating": 4.7
   },
   {
@@ -69,6 +76,7 @@
     "experience": "10 years",
     "bio": "Dua specializes in luxury travel, offering personalized services to affluent tourists who wish to explore Bangladesh in comfort and style, including high-end hotels and exclusive experiences.",
     "contact": "+8809876543210",
+    "email": "dua.rahman@gmail.com",
     "rating": 5.0
   }
 ]

@@ -239,7 +239,7 @@ const Sidebar = () => {
             {/* Join as Tour Guide */}
             {/* manage stories */}
             <NavLink
-              to="manage-stories"
+              to="join-guide"
               className={`${
                 isCollapse ? "justify-between" : "justify-center"
               } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}

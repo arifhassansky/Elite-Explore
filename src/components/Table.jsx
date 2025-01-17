@@ -36,7 +36,7 @@ const MyBookings = ({ data }) => {
                   }`}
                 >
                   <td className="px-4 py-2">{booking.packageName}</td>
-                  <td className="px-4 py-2">{booking.guide}</td>
+                  <td className="px-4 py-2">{booking.guide.name}</td>
                   <td className="px-4 py-2">{formattedTourDate}</td>
                   <td className="px-4 py-2">{booking.price}</td>
                   <td className="px-4 py-2">{booking.status}</td>

@@ -7,17 +7,12 @@ import Select from "react-select";
 import { FaCalendarAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-const BookingModal = ({
-  destination,
-  guides,
-  onClose,
-  onBook,
-  setIsBookingConfirmed,
-}) => {
+const BookingModal = ({ destination, guides, onClose, onBook }) => {
   const [tourDate, setTourDate] = useState(null);
   const [selectedGuide, setSelectedGuide] = useState(null);
   const { user } = useAuth();
   const [isFirstModalOpen, setIsFirstModalOpen] = useState(true);
+  console.log(guides);
 
   // Handle booking details submission
   const handleSubmit = () => {
@@ -39,13 +34,14 @@ const BookingModal = ({
       price: destination.price,
       status: "pending",
     };
+    console.log(bookingDetails);
 
     onBook(bookingDetails);
     setIsFirstModalOpen(false);
   };
 
   const guideOptions = guides.map((guide) => ({
-    value: guide.name,
+    value: { name: guide.name, email: guide.email },
     label: guide.name,
   }));
 
@@ -157,7 +153,6 @@ const BookingModal = ({
             <button
               onClick={() => {
                 handleSubmit();
-                setIsBookingConfirmed(true);
               }}
               className="px-4 py-2 bg-green-500 text-white rounded-lg shadow-sm hover:bg-green-600"
             >
