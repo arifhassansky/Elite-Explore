@@ -1,0 +1,137 @@
+[
+  {
+    "title": "Narsingdi River and Landscape",
+    "price": 3000,
+    "description": "Narsingdi River is known for its picturesque landscape and calm, tranquil waters. This river and its surrounding areas offer stunning views, making it an ideal spot for nature lovers and those seeking a peaceful retreat.",
+    "type": "Nature",
+    "images": [
+      "https://example.com/narsingdi1.jpg",
+      "https://example.com/narsingdi2.jpg"
+    ],
+    "tour_plan": [
+      {
+        "day": "Day 1",
+        "title": "Arrival and River Exploration",
+        "activities": "Arrive in Narsingdi and check into your hotel. Start your adventure with a relaxing boat ride along the Narsingdi River. Enjoy the stunning landscape, dotted with traditional fishing boats and surrounded by lush greenery. Visit a nearby village and interact with local fishermen, learning about their daily life and the river’s importance to the community. End the day with a traditional Bengali dinner at a local restaurant."
+      },
+      {
+        "day": "Day 2",
+        "title": "Nature Walk and Cultural Exploration",
+        "activities": "Start the morning with a nature walk along the riverbanks. Explore the wetlands and local flora, perfect for birdwatching and photography. In the afternoon, visit the nearby temples and historical landmarks. Learn about the rich cultural heritage of the area and how the river has shaped the region’s history. End the day with a peaceful evening by the river, enjoying the tranquility."
+      },
+      {
+        "day": "Day 3",
+        "title": "Countryside and Cultural Immersion",
+        "activities": "Spend the day exploring the rural countryside surrounding Narsingdi. Take a boat ride to nearby islands and engage in a local agricultural tour, where you’ll learn about traditional farming practices. Enjoy a picnic on the riverbank and take in the scenic beauty of the area. In the evening, return to the town and enjoy a cultural performance or folk music before departing."
+      }
+    ]
+  },
+  {
+    "title": "Puthia Temple Complex",
+    "price": 4000,
+    "description": "The Puthia Temple Complex is one of the largest Hindu temple complexes in Bangladesh, located in the Rajshahi division. It features beautiful temples with intricate architecture, dedicated to various deities, and is a place of both religious significance and architectural beauty.",
+    "type": "Cultural",
+    "images": [
+      "https://example.com/puthia1.jpg",
+      "https://example.com/puthia2.jpg"
+    ],
+    "tour_plan": [
+      {
+        "day": "Day 1",
+        "title": "Temple Exploration and Historical Insights",
+        "activities": "Arrive in Puthia and check into your hotel. Begin your tour by visiting the Puthia Temple Complex, which includes several historically significant temples dedicated to various Hindu deities. Marvel at the intricate carvings, sculptures, and beautiful frescoes that decorate the temples. Afterward, visit the nearby Rajbari Palace to learn about the royal history of the area. In the evening, enjoy local Bengali cuisine at a restaurant in the village."
+      },
+      {
+        "day": "Day 2",
+        "title": "Village Tour and Cultural Immersion",
+        "activities": "Today, spend the morning visiting more temples in the Puthia Complex, such as the Shiva and Jagannath Temples. Learn about the religious rituals that are still practiced by locals. After lunch, take a guided tour of the nearby villages, where you’ll get a chance to interact with local residents and experience their daily lives. Explore the vibrant local markets and shop for handicrafts and souvenirs."
+      },
+      {
+        "day": "Day 3",
+        "title": "Archaeological Sites and Scenic Walks",
+        "activities": "On the final day, visit the nearby archaeological sites, including the ruins of ancient structures dating back to the Mughal and British periods. Visit local museums to explore artifacts and exhibits related to the area’s rich cultural heritage. Afterward, take a scenic walk along the riverbanks, where you can relax and enjoy the peaceful environment. Return to your hotel in the evening for a farewell dinner."
+      }
+    ]
+  },
+  {
+    "title": "Chimbuk Hill",
+    "price": 6000,
+    "description": "Chimbuk Hill, located in Bandarban, is the highest peak in Bangladesh, offering panoramic views of the surrounding mountains and valleys. It's a popular trekking destination for adventure enthusiasts and nature lovers.",
+    "type": "Adventure",
+    "images": [
+      "https://example.com/chimbuk1.jpg",
+      "https://example.com/chimbuk2.jpg"
+    ],
+    "tour_plan": [
+      {
+        "day": "Day 1",
+        "title": "Trekking and Tribal Village Exploration",
+        "activities": "Arrive in Bandarban and check into your hotel. Begin your journey by heading towards Chimbuk Hill. Trek through dense forests and narrow trails, reaching viewpoints that offer stunning panoramic views of the surrounding valleys and hills. Spend the afternoon exploring the local tribal villages near the base of the hill. Learn about the lifestyle and traditions of the indigenous communities living in this remote area."
+      },
+      {
+        "day": "Day 2",
+        "title": "Summit Trek and Waterfall Visit",
+        "activities": "Start the day early with a trek to the summit of Chimbuk Hill, where you’ll be rewarded with breathtaking views of the surrounding mountains. Enjoy a packed lunch on the peak and take in the tranquil beauty of the landscape. In the afternoon, descend and visit the nearby waterfalls, where you can take a refreshing dip in the cool waters. Explore the natural surroundings before returning to Bandarban for the evening."
+      },
+      {
+        "day": "Day 3",
+        "title": "Indigenous Villages and Craftsmanship",
+        "activities": "Spend the day exploring the surrounding hills, taking in more of the region’s natural beauty. Visit the indigenous tribal villages, where you can participate in traditional crafts and learn about local customs. After a fulfilling day, enjoy a relaxing dinner at a local restaurant, sampling regional specialties before departing the next day."
+      }
+    ]
+  },
+  {
+    "title": "Shat Gombuj Mosque",
+    "price": 3500,
+    "description": "Shat Gombuj Mosque, also known as the Sixty Dome Mosque, is a UNESCO World Heritage site located in Bagerhat. It is an iconic example of Islamic architecture in Bangladesh, built in the 15th century, and is known for its distinctive design with 60 domes.",
+    "type": "Historical",
+    "images": [
+      "https://example.com/shatgombuj1.jpg",
+      "https://example.com/shatgombuj2.jpg"
+    ],
+    "tour_plan": [
+      {
+        "day": "Day 1",
+        "title": "Mosque Exploration and Historical Walk",
+        "activities": "Arrive in Bagerhat and visit the Shat Gombuj Mosque. Explore its historical significance, learn about the architecture, and take in the peaceful surroundings. Spend some time admiring the mosque's beautiful structure, with its 60 domes and surrounding courtyards. In the evening, enjoy a traditional meal at a local restaurant in Bagerhat."
+      },
+      {
+        "day": "Day 2",
+        "title": "Historical Sites and Local Heritage",
+        "activities": "Today, visit other historical sites in Bagerhat, including the tomb of Khan Jahan Ali, the founder of the mosque. Explore the surrounding areas, including the nearby fish ponds and small lakes that contribute to the tranquil atmosphere. Take a walking tour around the town, learning about its rich history and the influence of Islamic architecture in the region."
+      },
+      {
+        "day": "Day 3",
+        "title": "Museums and Market Visit",
+        "activities": "On the final day, visit the nearby museums to explore exhibits on the region’s Islamic culture and heritage. Explore local markets for traditional crafts and souvenirs. Spend the afternoon relaxing in a peaceful park near the mosque before heading back to your hotel for your departure."
+      }
+    ]
+  },
+  {
+    "title": "Satchhari National Park",
+    "price": 5000,
+    "description": "Satchhari National Park, located in the northeastern part of Bangladesh, is a tropical rainforest offering diverse flora and fauna. It's a perfect destination for nature walks, bird watching, and exploring the rich biodiversity of the region.",
+    "type": "Nature",
+    "images": [
+      "https://example.com/satchhari1.jpg",
+      "https://example.com/satchhari2.jpg"
+    ],
+    "tour_plan": [
+      {
+        "day": "Day 1",
+        "title": "Nature Walk and Biodiversity Observation",
+        "activities": "Arrive at Satchhari National Park and check into a nearby guesthouse. Start your exploration with a guided nature walk, observing the rich flora and fauna of the park. Learn about the park's biodiversity, including various species of birds, reptiles, and mammals. Take your time to appreciate the natural beauty of this tropical rainforest."
+      },
+      {
+        "day": "Day 2",
+        "title": "Hiking and Tribal Village Tour",
+        "activities": "Spend the morning hiking to a viewpoint within the park that offers panoramic views of the surrounding forests and hills. Afterward, take a guided tour through the park's most popular trails, where you’ll see rare plants, trees, and wildlife. In the evening, visit nearby tribal villages to learn about the indigenous communities that inhabit the region."
+      },
+      {
+        "day": "Day 3",
+        "title": "Waterfall Visit and Picnic",
+        "activities": "On the final day, continue your nature exploration with a visit to a waterfall within the park. Enjoy a picnic lunch near the waterfall and take in the tranquil surroundings. Afterward, return to your guesthouse for a relaxing evening, enjoying traditional Bengali food and culture before departing the next day."
+      }
+    ]
+  }
+]

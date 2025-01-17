@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { FiUpload } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
-import { imageUpload } from "../utils/ImageBbUpload"; // Assuming you have this utility function
+import { imageUpload } from "../utils/ImageBbUpload";
 import { toast } from "react-toastify";
 import axios from "axios";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const AddPackageForm = () => {
+  const axiosPublic = useAxiosPublic();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [tourType, setTourType] = useState("");
   const [images, setImages] = useState([]);
   const [imageLinks, setImageLinks] = useState([]);
   const [tourPlan, setTourPlan] = useState([
@@ -61,17 +64,19 @@ const AddPackageForm = () => {
         title,
         description,
         price: parseInt(price),
+        tourType,
         photo: uploadedImageUrls,
         tour_plan: tourPlan,
       };
 
       // Send the package data to the backend
-      const { data } = await axios.post("/add-package", packageData);
-      if (data.success) {
+      const { data } = await axiosPublic.post("/add-package", packageData);
+      if (data.insertedId) {
         toast.success("Package added successfully!");
         setTitle("");
         setDescription("");
         setPrice("");
+        setTourType("");
         setImages([]);
         setImageLinks([]);
         setTourPlan([{ day: "", title: "", activities: "" }]);
@@ -102,6 +107,7 @@ const AddPackageForm = () => {
                 className="border-gray-300 border rounded-lg outline-none px-3 w-full py-2 focus:border-primary transition-colors duration-300 "
                 placeholder="Enter package title"
                 required
+                maxLength="100"
               />
             </div>
             <div>
@@ -113,6 +119,7 @@ const AddPackageForm = () => {
                 className="border-gray-300 border rounded-lg outline-none px-3 w-full py-2 focus:border-primary transition-colors duration-300 "
                 placeholder="Enter package price"
                 required
+                min="1"
               />
             </div>
             <div className="col-span-2">
@@ -124,7 +131,26 @@ const AddPackageForm = () => {
                 rows="2"
                 placeholder="Enter package description"
                 required
+                maxLength="500"
               ></textarea>
+            </div>
+            {/* Tour Type Selection */}
+            <div className="col-span-2">
+              <label className="block font-semibold  mb-1">Tour Type*</label>
+              <select
+                value={tourType}
+                onChange={(e) => setTourType(e.target.value)}
+                className="border-gray-300 border rounded-lg outline-none px-3 w-full py-2 focus:border-primary transition-colors duration-300 "
+                required
+              >
+                <option value="">Select Tour Type</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Relaxation">Relaxation</option>
+                <option value="Nature">Nature</option>
+                <option value="Historical">Historical</option>
+                {/* Add more tour types as needed */}
+              </select>
             </div>
             <div className="col-span-2">
               <label className="block font-semibold  mb-1">Upload Images</label>
@@ -184,6 +210,7 @@ const AddPackageForm = () => {
                   placeholder="Day no"
                   className="border-gray-300 border rounded-lg outline-none px-3 py-2 focus:border-primary transition-colors duration-300 "
                   required
+                  maxLength="50"
                 />
                 <input
                   type="text"
@@ -194,6 +221,7 @@ const AddPackageForm = () => {
                   placeholder="Title"
                   className="border-gray-300 border rounded-lg outline-none px-3 py-2 focus:border-primary transition-colors duration-300 "
                   required
+                  maxLength="100"
                 />
                 <textarea
                   value={dayPlan.activities}
@@ -204,6 +232,7 @@ const AddPackageForm = () => {
                   className="border-gray-300 border rounded-lg outline-none px-3 py-2 focus:border-primary transition-colors duration-300 "
                   rows="2"
                   required
+                  maxLength="500"
                 ></textarea>
               </div>
             ))}
