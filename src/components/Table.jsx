@@ -1,10 +1,50 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { default as Button } from "./Button";
-import { default as SecondBtn } from "./SecondBtn";
 import { format } from "date-fns";
+import { toast } from "react-toastify";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
-const MyBookings = ({ data }) => {
+const MyBookings = ({ data, refetch }) => {
+  const axiosSecure = useAxiosSecure();
+  const confirmCancel = (booking) => {
+    toast(
+      ({ closeToast }) => (
+        <div className="flex items-center justify-between gap-2 p-2">
+          <p className="text-sm text-gray-700 flex-1">
+            Are you sure cancel your
+            <span className="text-green-600"> {booking.packageName} </span>
+            booking?
+          </p>
+          <div className="flex gap-2">
+            <button
+              className="bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1 rounded"
+              onClick={() => {
+                handleCancel(booking);
+                closeToast();
+              }}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-green-600 hover:bg-green-700 text-white text-sm px-3 py-1 rounded"
+              onClick={closeToast}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      ),
+      { autoClose: false, closeOnClick: false }
+    );
+  };
+  const handleCancel = async (booking) => {
+    const { data } = await axiosSecure.delete(`/booking/${booking?._id}`);
+    if (data.deletedCount > 0) {
+      refetch();
+      toast.success(`${booking.packageName}'s application has been deleted`);
+    }
+  };
   return (
     <div className="overflow-x-auto rounded-lg">
       {data && data.length > 0 ? (
@@ -21,7 +61,7 @@ const MyBookings = ({ data }) => {
             </tr>
           </thead>
 
-          <tbody className="text-gray-600 text-md lg:text-lg">
+          <tbody className="text-gray-600 text-md ">
             {data.map((booking, index) => {
               const formattedTourDate = format(
                 new Date(booking.tourDate),
@@ -41,10 +81,29 @@ const MyBookings = ({ data }) => {
                   <td className="px-4 py-2">{booking.price}</td>
                   <td className="px-4 py-2">{booking.status}</td>
                   <td className="px-4 py-2">
-                    <Button text="Pay" />
+                    {data.length ? (
+                      <Link
+                        to="/dashboard/payment"
+                        className="btn bg-green-500 text-white hover:bg-green-700"
+                      >
+                        Pay
+                      </Link>
+                    ) : (
+                      <Link
+                        className="btn bg-green-500 text-white hover:bg-green-700"
+                        disabled
+                      >
+                        Pay
+                      </Link>
+                    )}
                   </td>
                   <td className="px-4 py-2">
-                    <SecondBtn text="Cancel" />
+                    <button
+                      onClick={() => confirmCancel(booking)}
+                      className="btn bg-red-500 text-white hover:bg-red-700"
+                    >
+                      Cancel
+                    </button>
                   </td>
                 </tr>
               );

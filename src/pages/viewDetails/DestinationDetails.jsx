@@ -1,27 +1,38 @@
-import { useLoaderData } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import DetailsImgSlider from "./DetailsImgSlider";
 import { useEffect, useState } from "react";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import TourGuideCard from "../../components/TourGuideCard";
 import BookingModal from "./BookingModal";
 import { toast } from "react-toastify";
 import Button from "../../components/Button";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { FiLoader } from "react-icons/fi";
 
 const DestinationDetails = () => {
-  const destination = useLoaderData();
+  const [loading, setLoading] = useState(true);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
-
-  console.log(destination);
+  const [destination, setDestination] = useState({});
+  const { id } = useParams();
 
   // fetch tour guides data
   const [guides, setGuides] = useState([]);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    axiosPublic.get("allGuides").then((res) => setGuides(res.data));
-  }, [axiosPublic]);
+    axiosSecure
+      .get(`/details/${id}`)
+      .then((res) => {
+        setDestination(res.data);
+        setLoading(false);
+      })
+      .catch((err) => console.log(err));
+  }, [axiosSecure, id]);
+
+  useEffect(() => {
+    axiosSecure.get("allGuides").then((res) => setGuides(res.data));
+  }, [axiosSecure]);
 
   // Handle booking logic
   const handleBookNow = async (bookingDetails) => {
@@ -30,12 +41,20 @@ const DestinationDetails = () => {
       return;
     }
     // send data to database
-    const { data } = await axiosPublic.post("/booking", bookingDetails);
+    const { data } = await axiosSecure.post("/booking", bookingDetails);
     if (data.insertedId) {
       setModalOpen(false);
       setIsBookingConfirmed(true);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center text-3xl font-bold">
+        <FiLoader className="text-5xl animate-spin text-[#3B9DF8]" />
+      </div>
+    );
+  }
 
   return (
     <div className="w-11/12 mx-auto px-8 pt-36 pb-20">

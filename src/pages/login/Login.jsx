@@ -10,7 +10,7 @@ import Button from "../../components/Button";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Login = () => {
-  const { signIn, googleSignIn, githubSignIn, setEmail, user } = useAuth();
+  const { signIn, googleSignIn, githubSignIn, setEmail } = useAuth();
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,9 +20,9 @@ const Login = () => {
     googleSignIn().then(async (res) => {
       console.log(res);
       const userData = {
-        name: res?.user?.displayName || "Anonymous User",
+        name: res?.user?.displayName,
         email: res?.user?.email,
-        photo: res?.user?.photoURL || "",
+        photo: res?.user?.photoURL,
         role: "user",
         timeStamp: Date.now(),
       };

@@ -19,6 +19,7 @@ import ManageUsers from "../dashboard/ManageUsers";
 import ManageCandidates from "../dashboard/ManageCandidates";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import Payment from "../dashboard/payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -44,8 +45,6 @@ const router = createBrowserRouter([
             <DestinationDetails />,
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_URL}/details/${params.id}`),
       },
       {
         path: "/register",
@@ -85,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/join-guide",
         element: <JoinAsGuide />,
+      },
+      {
+        path: "/dashboard/payment",
+        element: <Payment />,
       },
       // guide routes
       {
