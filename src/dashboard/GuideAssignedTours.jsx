@@ -18,7 +18,7 @@ const GuideAssignedTours = () => {
   });
 
   const handleAccept = async (id) => {
-    const { data } = await axiosPublic.patch(`/bookings/${id}`);
+    const { data } = await axiosPublic.patch(`/bookings-accept/${id}`);
     if (data.modifiedCount > 0) {
       refetch();
       toast.success("You have Accepted the booking");
@@ -28,7 +28,7 @@ const GuideAssignedTours = () => {
   };
 
   const handleReject = async (id) => {
-    const { data } = await axiosPublic.patch(`/bookings/${id}`);
+    const { data } = await axiosPublic.patch(`/bookings-reject/${id}`);
     if (data.modifiedCount > 0) {
       refetch();
       toast.success("You have rejected the booking");

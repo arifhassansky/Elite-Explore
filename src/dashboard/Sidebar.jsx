@@ -13,7 +13,7 @@ import { CiLogout } from "react-icons/ci";
 import useAuth from "../hooks/useAuth";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaAddressBook, FaHandshakeAngle, FaUsers } from "react-icons/fa6";
-import { FaHome, FaUserEdit, FaUsersCog } from "react-icons/fa";
+import { FaHistory, FaHome, FaUserEdit, FaUsersCog } from "react-icons/fa";
 import useLoadUser from "../hooks/useLoadUser";
 
 const Sidebar = () => {
@@ -261,6 +261,32 @@ const Sidebar = () => {
               >
                 <p className="text-[0.9rem] w-max bg-primary text-white rounded px-3 py-[5px]">
                   Join as Tour Guide
+                </p>
+              </div>
+            </NavLink>
+            <NavLink
+              to="payment-history"
+              className={`${
+                isCollapse ? "justify-between" : "justify-center"
+              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+            >
+              <div className="flex items-center gap-2">
+                <FaHistory className="text-[1.3rem" />
+                <p
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                >
+                  Payment History
+                </p>
+              </div>
+
+              {/* tooltip */}
+              <div
+                className={`${
+                  isCollapse ? "hidden" : "inline"
+                } absolute top-0 right-[-135px] translate-x-[20px] opacity-0 z-[-1] group-hover:translate-x-0 group-hover:opacity-100 group-hover:z-[1] transition-all duration-500`}
+              >
+                <p className="text-[0.9rem] w-max bg-primary text-white rounded px-3 py-[5px]">
+                  Payment History
                 </p>
               </div>
             </NavLink>

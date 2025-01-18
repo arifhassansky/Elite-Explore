@@ -1,11 +1,13 @@
 import { useState } from "react";
-import useAxiosPublic from "../hooks/useAxiosPublic";
 import useLoadUser from "../hooks/useLoadUser";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const JoinAsGuide = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const [user] = useLoadUser();
   const [title, setTitle] = useState("");
+  const [phone, setPhone] = useState("");
+  const [designation, setDestination] = useState("");
   const [whyTourGuide, setWhyTourGuide] = useState("");
   const [cvLink, setCvLink] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -15,14 +17,21 @@ const JoinAsGuide = () => {
 
     const applicationInfo = {
       email: user?.email,
+      name: user?.name,
+      photo: user?.photo,
+      role: user?.role,
       title,
+      contact: phone,
+      specialty: designation,
       whyTourGuide,
       cvLink,
     };
-    const { data } = await axiosPublic.post("/applications", applicationInfo);
+    const { data } = await axiosSecure.post("/applications", applicationInfo);
     if (data.insertedId) {
       setShowModal(true);
       setTitle("");
+      setPhone("");
+      setDestination("");
       setWhyTourGuide("");
       setCvLink("");
     }
@@ -44,18 +53,64 @@ const JoinAsGuide = () => {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-lg font-medium text-gray-700 mb-2">
-              Application Title
-            </label>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary transition duration-300"
-              placeholder="Enter your application title"
-              required
-            />
+          <div className="flex items-center gap-3 w-full">
+            <div className="w-1/2">
+              <label className="block text-lg font-medium text-gray-700 mb-2">
+                Application Title
+              </label>
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary transition duration-300"
+                placeholder="Enter your application title"
+                required
+              />
+            </div>
+
+            <div className="w-1/2">
+              <label className="block text-lg font-medium text-gray-700 mb-2">
+                Phone*
+              </label>
+              <input
+                type="number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary transition duration-300"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 w-full">
+            <div className="w-1/2">
+              <label className="block text-lg font-medium text-gray-700 mb-2">
+                Designation
+              </label>
+              <input
+                type="text"
+                value={designation}
+                onChange={(e) => setDestination(e.target.value)}
+                className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary transition duration-300"
+                placeholder="Write your speciality"
+                required
+              />
+            </div>
+
+            <div className="w-1/2">
+              <label className="block text-lg font-medium text-gray-700 mb-2">
+                CV Link
+              </label>
+              <input
+                type="url"
+                value={cvLink}
+                onChange={(e) => setCvLink(e.target.value)}
+                className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary transition duration-300"
+                placeholder="Paste your CV link here"
+                required
+              />
+            </div>
           </div>
 
           <div>
@@ -67,20 +122,6 @@ const JoinAsGuide = () => {
               onChange={(e) => setWhyTourGuide(e.target.value)}
               className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary transition duration-300"
               placeholder="Write a brief description"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-lg font-medium text-gray-700 mb-2">
-              CV Link
-            </label>
-            <input
-              type="url"
-              value={cvLink}
-              onChange={(e) => setCvLink(e.target.value)}
-              className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary transition duration-300"
-              placeholder="Paste your CV link here"
               required
             />
           </div>

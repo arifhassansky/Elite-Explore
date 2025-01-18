@@ -59,7 +59,7 @@ const Profile = () => {
           </Link>
 
           {user.role === "user" && (
-            <Link className="mt-4" to="/joinAsGuide">
+            <Link className="mt-4" to="/dashboard/join-guide">
               <SecondBtn text="Apply For Tour Guide" />
             </Link>
           )}

@@ -48,16 +48,16 @@ const MyBookings = ({ data, refetch }) => {
   return (
     <div className="overflow-x-auto rounded-lg">
       {data && data.length > 0 ? (
-        <table className="w-full border-collapse bg-white shadow-md">
-          <thead className="bg-primary text-gray-200 uppercase text-sm lg:text-md">
+        <table className="table table-zebra border-collapse">
+          <thead className="bg-secondary text-gray-200 uppercase">
             <tr>
-              <th className="px-4 py-2">Package</th>
-              <th className="px-4 py-2">Guide Name</th>
-              <th className="px-4 py-2">Tour Date</th>
-              <th className="px-4 py-2">Tour Price</th>
-              <th className="px-4 py-2">Status</th>
-              <th className="px-4 py-2">Payment</th>
-              <th className="px-4 py-2">Action</th>
+              <th className="px-4 py-3">Package</th>
+              <th className="px-4 py-3">Guide Name</th>
+              <th className="px-4 py-3">Tour Date</th>
+              <th className="px-4 py-3">Tour Price</th>
+              <th className="px-4 py-3">Status</th>
+              <th className="px-4 py-3">Payment</th>
+              <th className="px-4 py-3">Action</th>
             </tr>
           </thead>
 
@@ -69,21 +69,16 @@ const MyBookings = ({ data, refetch }) => {
               );
 
               return (
-                <tr
-                  key={index}
-                  className={`text-center ${
-                    index % 2 === 0 ? "bg-gray-100" : "bg-white"
-                  }`}
-                >
+                <tr key={index}>
                   <td className="px-4 py-2">{booking.packageName}</td>
                   <td className="px-4 py-2">{booking.guide.name}</td>
                   <td className="px-4 py-2">{formattedTourDate}</td>
                   <td className="px-4 py-2">{booking.price}</td>
                   <td className="px-4 py-2">{booking.status}</td>
                   <td className="px-4 py-2">
-                    {data.length ? (
+                    {data.length && booking.status === "pending" ? (
                       <Link
-                        to="/dashboard/payment"
+                        to={`/dashboard/payment/${booking._id}`}
                         className="btn bg-green-500 text-white hover:bg-green-700"
                       >
                         Pay
@@ -101,6 +96,7 @@ const MyBookings = ({ data, refetch }) => {
                     <button
                       onClick={() => confirmCancel(booking)}
                       className="btn bg-red-500 text-white hover:bg-red-700"
+                      disabled={booking.status !== "pending"}
                     >
                       Cancel
                     </button>

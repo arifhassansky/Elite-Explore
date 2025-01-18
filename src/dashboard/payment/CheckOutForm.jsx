@@ -4,30 +4,34 @@ import { useNavigate } from "react-router-dom";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
-import useBookings from "../../hooks/useBookings";
 
-const CheckOutForm = () => {
+// eslint-disable-next-line react/prop-types
+const CheckOutForm = ({ id }) => {
   const [error, setError] = useState();
   const [clientSecret, setClientSecret] = useState();
   const [transectionId, setTransectionId] = useState();
   const { user } = useAuth();
   const navigate = useNavigate();
+  const [booking, setBooking] = useState();
+  console.log(booking);
 
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
-  const [bookings, refetch] = useBookings();
-  const totalPrice = bookings.reduce((total, item) => total + item.price, 0);
 
   useEffect(() => {
-    if (totalPrice > 0) {
+    axiosSecure.get(`/book/${id}`).then((res) => setBooking(res.data));
+  }, [axiosSecure, id]);
+
+  useEffect(() => {
+    if (booking?.price > 0) {
       axiosSecure
-        .post("/create-payment-intent", { price: totalPrice })
+        .post("/create-payment-intent", { price: booking?.price })
         .then((res) => {
           setClientSecret(res.data.clientSecret);
         });
     }
-  }, [axiosSecure, totalPrice]);
+  }, [axiosSecure, booking?.price]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -76,18 +80,17 @@ const CheckOutForm = () => {
     const payment = {
       transectionId: paymentIntent.id,
       email: user?.email,
-      price: totalPrice,
+      price: booking?.price,
       date: new Date(),
-      bookingsIds: bookings.map((item) => item._id),
-      menuIds: bookings.map((item) => item.menuId),
+      bookingsId: booking._id,
+      packageId: booking?.packageId,
       status: "pending",
     };
     const { data } = await axiosSecure.post("/payment", payment);
     console.log(data);
     if (data?.result?.insertedId) {
-      refetch();
       toast("Payment Successfull");
-      navigate("/dashboard/paymentHistory");
+      navigate("/dashboard/payment-history");
     }
   };
   return (

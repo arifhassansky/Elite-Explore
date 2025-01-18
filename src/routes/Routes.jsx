@@ -20,6 +20,7 @@ import ManageCandidates from "../dashboard/ManageCandidates";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Payment from "../dashboard/payment/Payment";
+import PaymentHistory from "../dashboard/payment/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -63,31 +64,67 @@ const router = createBrowserRouter([
       // user routes
       {
         path: "/dashboard",
-        element: <Profile />,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/my-bookings",
-        element: <MyBookings />,
+        element: (
+          <PrivateRoute>
+            <MyBookings />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/add-stories",
-        element: <AddStory />,
+        element: (
+          <PrivateRoute>
+            <AddStory />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/manage-stories",
-        element: <ManageStories />,
+        element: (
+          <PrivateRoute>
+            <ManageStories />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/edit-story/:id",
-        element: <EditStory />,
+        element: (
+          <PrivateRoute>
+            <EditStory />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/join-guide",
-        element: <JoinAsGuide />,
+        element: (
+          <PrivateRoute>
+            <JoinAsGuide />
+          </PrivateRoute>
+        ),
       },
       {
-        path: "/dashboard/payment",
-        element: <Payment />,
+        path: "/dashboard/payment/:id",
+        element: (
+          <PrivateRoute>
+            <Payment />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/payment-history",
+        element: (
+          <PrivateRoute>
+            <PaymentHistory />
+          </PrivateRoute>
+        ),
       },
       // guide routes
       {
