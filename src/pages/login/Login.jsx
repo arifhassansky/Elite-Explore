@@ -7,20 +7,33 @@ import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import Lottie from "lottie-react";
 import Button from "../../components/Button";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Login = () => {
-  const { signIn, googleSignIn, githubSignIn, setEmail } = useAuth();
+  const { signIn, googleSignIn, githubSignIn, setEmail, user } = useAuth();
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const axiosPublic = useAxiosPublic();
 
   const handleGoogleLogin = () => {
-    googleSignIn()
-      .then(() => {
-        navigate(location.state ? location.state : "/");
-        toast.success("Login Successfull!");
-      })
-      .catch(() => {});
+    googleSignIn().then(async (res) => {
+      console.log(res);
+      const userData = {
+        name: res?.user?.displayName || "Anonymous User",
+        email: res?.user?.email,
+        photo: res?.user?.photoURL || "",
+        role: "user",
+        timeStamp: Date.now(),
+      };
+
+      // Save user to the database
+      await axiosPublic.post("/users", userData);
+
+      // Navigate to the intended page or home
+      navigate(location.state?.from || "/");
+      toast.success("Login Successful!");
+    });
   };
 
   const handleGithubLogin = () => {

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Select from "react-select";
-import useAxiosPublic from "../hooks/useAxiosPublic";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const ManageUsers = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const [roleFilter, setRoleFilter] = useState(null);
   const [search, setSearch] = useState("");
 
@@ -23,7 +23,7 @@ const ManageUsers = () => {
         search: search,
         role: roleFilter?.value || "",
       };
-      const { data } = await axiosPublic.get("/users", { params });
+      const { data } = await axiosSecure.get("/users", { params });
       return data;
     },
   });

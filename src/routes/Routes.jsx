@@ -17,6 +17,8 @@ import GuideAssignedTours from "../dashboard/GuideAssignedTours";
 import AddPackageForm from "../dashboard/AddPackageForm";
 import ManageUsers from "../dashboard/ManageUsers";
 import ManageCandidates from "../dashboard/ManageCandidates";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <DestinationDetails />,
+        element: (
+          <PrivateRoute>
+            <DestinationDetails />,
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_URL}/details/${params.id}`),
       },
@@ -88,15 +94,27 @@ const router = createBrowserRouter([
       // admin routes
       {
         path: "/dashboard/add-package",
-        element: <AddPackageForm />,
+        element: (
+          <AdminRoute>
+            <AddPackageForm />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/manage-users",
-        element: <ManageUsers />,
+        element: (
+          <AdminRoute>
+            <ManageUsers />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/manage-candidates",
-        element: <ManageCandidates />,
+        element: (
+          <AdminRoute>
+            <ManageCandidates />
+          </AdminRoute>
+        ),
       },
     ],
   },

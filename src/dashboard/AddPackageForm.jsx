@@ -3,10 +3,10 @@ import { FiUpload } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import { imageUpload } from "../utils/ImageBbUpload";
 import { toast } from "react-toastify";
-import useAxiosPublic from "../hooks/useAxiosPublic";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AddPackageForm = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -69,7 +69,7 @@ const AddPackageForm = () => {
       };
 
       // Send the package data to the backend
-      const { data } = await axiosPublic.post("/add-package", packageData);
+      const { data } = await axiosSecure.post("/add-package", packageData);
       if (data.insertedId) {
         toast.success("Package added successfully!");
         setTitle("");

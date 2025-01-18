@@ -1,17 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import SectionTitle from "../components/SectionTitle";
-import useAxiosPublic from "../hooks/useAxiosPublic";
+
 import { toast } from "react-toastify";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const ManageCandidates = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   // Fetch applications from the backend
   const { data: applications, refetch } = useQuery({
     queryKey: ["applications"],
     queryFn: async () => {
-      const { data } = await axiosPublic.get("/applications");
+      const { data } = await axiosSecure.get("/applications");
       return data;
     },
   });
@@ -49,9 +49,7 @@ const ManageCandidates = () => {
   };
 
   const handleAccept = async (application) => {
-    const { data } = await axiosPublic.patch(
-      `/accept-tour-guide/${application?.email}`
-    );
+    const { data } = await axiosSecure.patch("/accept-tour-guide", application);
     if (data.modifiedCount > 0) {
       refetch();
       toast.success(
@@ -94,7 +92,7 @@ const ManageCandidates = () => {
   };
   const handleReject = async (application) => {
     console.log(application);
-    const { data } = await axiosPublic.delete(
+    const { data } = await axiosSecure.delete(
       `/reject-tour-guide/${application?.email}`
     );
     if (data.deletedCount > 0) {

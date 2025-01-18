@@ -17,7 +17,6 @@ import useAxiosPublic from "../hooks/useAxiosPublic";
 const AuthProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
-
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,28 +31,27 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      setUser(currentUser);
-      setEmail(currentUser?.email);
-
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        const userData = {
-          name: currentUser?.displayName,
-          email: currentUser?.email,
-          photo: currentUser?.photoURL,
-          role: "user",
-          timeStamp: Date.now(),
-        };
-
-        const { data } = await axiosPublic.post("/users", userData);
-        console.log({ data }, { userData });
+        // Create JWT token
+        axiosPublic.post("/jwt", { email: currentUser.email }).then((res) => {
+          if (res?.data?.token) {
+            localStorage.setItem("token", res.data.token);
+            setUser(currentUser);
+            setEmail(currentUser.email);
+            setLoading(false);
+          }
+        });
+      } else {
+        // Handle unauthenticated state
+        localStorage.removeItem("token");
+        setUser(null);
+        setEmail(null);
+        setLoading(false);
       }
-      setLoading(false);
     });
 
-    return () => {
-      unsubscribe();
-    };
+    return () => unsubscribe();
   }, [axiosPublic]);
 
   const updateUserProfile = (updatedData) => {

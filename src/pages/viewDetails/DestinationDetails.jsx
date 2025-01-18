@@ -13,6 +13,8 @@ const DestinationDetails = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
 
+  console.log(destination);
+
   // fetch tour guides data
   const [guides, setGuides] = useState([]);
   const axiosPublic = useAxiosPublic();
