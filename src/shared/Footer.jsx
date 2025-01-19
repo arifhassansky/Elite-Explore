@@ -96,7 +96,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://www.linkedin.com/in/arif-hassan-8a4642317/"
+                href="https://www.linkedin.com/in/arif-hassan-8a4642317"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-110"
@@ -108,15 +108,15 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://www.instagram.com/ariyan_sky/"
+                href="https://github.com/arifhassansky"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-110"
               >
                 <img
-                  src="https://i.ibb.co.com/phDPkf7/instrgram.png"
-                  alt="Instagram"
-                  className="w-8 h-8 rounded-full"
+                  src="https://i.ibb.co.com/b15JzW4/github.png"
+                  alt="Github"
+                  className="w-14 h-8 rounded-full"
                 />
               </a>
             </div>

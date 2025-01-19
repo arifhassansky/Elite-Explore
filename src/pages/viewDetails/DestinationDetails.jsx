@@ -209,7 +209,7 @@ const DestinationDetails = () => {
 
       {/* show countfetti */}
       {showCongrats && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-20">
           <Confetti />
           <div className="flex flex-col items-center px-12 py-6 bg-white backdrop-blur-2xl bg-opacity-10 rounded-lg">
             <img

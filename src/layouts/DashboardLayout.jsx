@@ -6,24 +6,28 @@ import Footer from "../shared/Footer";
 
 const DashboardLayout = () => {
   return (
-    <div>
-      <div className="flex">
+    <div className="flex flex-col min-h-screen">
+      <div className="flex flex-1">
+        {/* Sidebar Section */}
         <div>
           <Sidebar />
         </div>
+
+        {/* Main Content Section */}
         <div
+          className="flex-1"
           style={{
             backgroundImage: `url(${profileBg})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            height: "100vh",
           }}
-          className="w-full"
         >
           <Outlet />
         </div>
       </div>
+
+      {/* Footer Section */}
       <Footer />
     </div>
   );

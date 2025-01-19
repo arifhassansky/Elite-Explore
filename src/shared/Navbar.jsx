@@ -95,7 +95,7 @@ const Navbar = () => {
                 }`
           }
         >
-          About Us
+          About
         </NavLink>
       </li>
       <li>
