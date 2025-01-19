@@ -8,8 +8,12 @@ import { toast } from "react-toastify";
 import Button from "../../components/Button";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { FiLoader } from "react-icons/fi";
+import Confetti from "react-confetti";
+import useAuth from "../../hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
 
 const DestinationDetails = () => {
+  const { user } = useAuth();
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
@@ -20,6 +24,27 @@ const DestinationDetails = () => {
   const [guides, setGuides] = useState([]);
   const axiosSecure = useAxiosSecure();
 
+  // showing congrachulations message
+  const [showCongrats, setShowCongrats] = useState(false);
+
+  const { data: bookings } = useQuery({
+    queryKey: ["bookings"],
+    enabled: !!user?.email,
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`/bookings/${user?.email}`);
+      return data;
+    },
+  });
+  console.log(bookings?.length);
+  useEffect(() => {
+    if (bookings?.length > 3) {
+      setShowCongrats(true);
+      const timer = setTimeout(() => setShowCongrats(false), 5000);
+      return () => clearTimeout(timer); // Cleanup timer on unmount or re-render
+    }
+  }, [bookings]);
+
+  // load details tours data
   useEffect(() => {
     axiosSecure
       .get(`/details/${id}`)
@@ -163,6 +188,31 @@ const DestinationDetails = () => {
                 My Bookings
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* show countfetti */}
+      {showCongrats && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <Confetti />
+          <div className="flex flex-col items-center px-12 py-6 bg-white backdrop-blur-2xl bg-opacity-10 rounded-lg">
+            <img
+              className="w-48"
+              src="https://i.ibb.co.com/b3qtqmx/wow-Girl-removebg-preview.png"
+            />
+            <h2 className="text-4xl font-semibold text-primary my-4 ">
+              🎉<span className="backdrop-blur-3xl"> Congratulations!</span> 🎉
+            </h2>
+            <h2 className="text-2xl text-secondary mb-6">
+              🎉You got a discount! 🎉
+            </h2>
+            <button
+              className="px-4 py-2 bg-primary text-white rounded-lg"
+              onClick={() => toast.success("Discount applied!")}
+            >
+              Apply Discount
+            </button>
           </div>
         </div>
       )}

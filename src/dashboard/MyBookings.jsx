@@ -1,9 +1,10 @@
-import Table from "../components/Table"; // Adjust the import path if needed
+import Table from "../components/Table";
 import SectionTitle from "../components/SectionTitle";
 import useBookings from "../hooks/useBookings";
 
 const MyBookings = () => {
   const [bookings, refetch] = useBookings();
+
   return (
     <div className="px-16 py-8">
       {bookings.length > 0 && (

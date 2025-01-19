@@ -18,7 +18,7 @@ const DetailsImgSlider = ({ images }) => {
   return (
     <div>
       {/* Image Gallery */}
-      <div className="w-2/3 mx-auto">
+      <div className="lg:w-2/3 mx-auto">
         {/* Main Image Section */}
         <div className="relative aspect-square">
           {/* Tags */}

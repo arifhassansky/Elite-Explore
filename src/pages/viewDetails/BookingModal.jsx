@@ -12,7 +12,6 @@ const BookingModal = ({ destination, guides, onClose, onBook }) => {
   const [selectedGuide, setSelectedGuide] = useState(null);
   const { user } = useAuth();
   const [isFirstModalOpen, setIsFirstModalOpen] = useState(true);
-  console.log(guides);
 
   // Handle booking details submission
   const handleSubmit = () => {
