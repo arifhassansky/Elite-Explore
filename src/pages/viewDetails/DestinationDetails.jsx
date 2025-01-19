@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import DetailsImgSlider from "./DetailsImgSlider";
 import { useEffect, useState } from "react";
@@ -18,6 +18,7 @@ const DestinationDetails = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
   const [destination, setDestination] = useState({});
+  const navigate = useNavigate();
   const { id } = useParams();
 
   // fetch tour guides data
@@ -35,7 +36,7 @@ const DestinationDetails = () => {
       return data;
     },
   });
-  console.log(bookings?.length);
+
   useEffect(() => {
     if (bookings?.length > 3) {
       setShowCongrats(true);
@@ -58,6 +59,16 @@ const DestinationDetails = () => {
   useEffect(() => {
     axiosSecure.get("allGuides").then((res) => setGuides(res.data));
   }, [axiosSecure]);
+
+  // const first handle book now button
+  const handleBook = () => {
+    if (user) {
+      setModalOpen(true);
+    } else {
+      toast.info("You must login to book a trip!");
+      navigate("/login");
+    }
+  };
 
   // Handle booking logic
   const handleBookNow = async (bookingDetails) => {
@@ -105,10 +116,7 @@ const DestinationDetails = () => {
             </p>
           </div>
 
-          <div
-            className="text-center w-1/2 mx-auto"
-            onClick={() => setModalOpen(true)}
-          >
+          <div className="text-center w-1/2 mx-auto" onClick={handleBook}>
             <Button text="Book Now!" />
           </div>
         </div>
@@ -158,7 +166,6 @@ const DestinationDetails = () => {
           guides={guides}
           onClose={() => setModalOpen(false)}
           onBook={handleBookNow}
-          // setIsBookingConfirmed={setIsBookingConfirmed}
         />
       )}
 
@@ -166,9 +173,11 @@ const DestinationDetails = () => {
       {isBookingConfirmed && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-            <h3 className="text-lg font-semibold mb-4">Confirm your Booking</h3>
+            <h3 className="text-lg font-semibold mb-4 text-center">
+              Confirm your Booking
+            </h3>
             <p className="mb-4">
-              Your have successfully booked
+              Your have successfully booked {""}
               <span className="text-green-600 font-semibold">
                 {destination.title}
               </span>
@@ -181,12 +190,18 @@ const DestinationDetails = () => {
               >
                 Later
               </button>
-              <button className="px-4 py-2 bg-green-600 text-white hover:bg-green-700 rounded-lg shadow-sm">
+              <Link
+                to="/dashboard/my-bookings"
+                className="px-4 py-2 bg-green-600 text-white hover:bg-green-700 rounded-lg shadow-sm"
+              >
                 Confirm
-              </button>
-              <button className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-sm hover:bg-blue-600">
+              </Link>
+              <Link
+                to="/dashboard/my-bookings"
+                className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-sm hover:bg-blue-600"
+              >
                 My Bookings
-              </button>
+              </Link>
             </div>
           </div>
         </div>

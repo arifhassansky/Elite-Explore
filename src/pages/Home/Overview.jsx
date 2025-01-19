@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Overview = () => {
   return (
     <section className="bg-gray-100 py-12">
@@ -51,12 +53,12 @@ const Overview = () => {
           </div>
         </div>
         <div className="text-center mt-12">
-          <a
-            href="/tourism-guide"
+          <Link
+            href="/trips"
             className="bg-primary text-white px-6 py-3 rounded-md shadow hover:bg-secondary transition-all"
           >
             Start Planning Your Journey Today
-          </a>
+          </Link>
         </div>
       </div>
     </section>

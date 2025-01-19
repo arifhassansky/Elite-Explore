@@ -7,7 +7,7 @@ const TourGuideCard = ({ guide }) => {
 
   return (
     <Link
-      to={`/profile/${_id}`}
+      to={`/guide/${_id}`}
       className="flex flex-col items-center text-center"
     >
       {/* Profile Image */}

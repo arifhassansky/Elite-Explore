@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
     });
 
     return () => unsubscribe();
-  }, [axiosPublic]);
+  }, []);
 
   const updateUserProfile = (updatedData) => {
     return updateProfile(auth.currentUser, updatedData);

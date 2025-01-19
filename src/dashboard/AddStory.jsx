@@ -71,7 +71,7 @@ const AddStory = () => {
   };
 
   return (
-    <div className="p-12">
+    <div className="px-12 py-1">
       <div className="max-w-xl mx-auto my-3 px-10 py-4 border rounded-xl shadow-2xl">
         <h2 className="text-2xl font-semibold mb-2 text-center uppercase">
           Add Your Beautiful Story

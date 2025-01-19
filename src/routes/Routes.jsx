@@ -6,7 +6,6 @@ import DestinationDetails from "../pages/viewDetails/DestinationDetails";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import Community from "../pages/community/Community";
-import Dashboard from "../dashboard/Dashboard";
 import Profile from "../dashboard/Profile";
 import MyBookings from "../dashboard/MyBookings";
 import AddStory from "../dashboard/AddStory";
@@ -22,6 +21,9 @@ import AdminRoute from "./AdminRoute";
 import Payment from "../dashboard/payment/Payment";
 import PaymentHistory from "../dashboard/payment/PaymentHistory";
 import AdminDashboard from "../dashboard/AdminDashboard";
+import DashboardLayout from "../layouts/DashboardLayout";
+import AboutUs from "../pages/AboutUs";
+import GuideProfile from "../pages/GuideProfile";
 
 const router = createBrowserRouter([
   {
@@ -41,12 +43,16 @@ const router = createBrowserRouter([
         element: <Trips />,
       },
       {
+        path: "about",
+        element: <AboutUs />,
+      },
+      {
         path: "/details/:id",
-        element: (
-          <PrivateRoute>
-            <DestinationDetails />,
-          </PrivateRoute>
-        ),
+        element: <DestinationDetails />,
+      },
+      {
+        path: "/guide/:id",
+        element: <GuideProfile />,
       },
       {
         path: "/register",
@@ -60,7 +66,7 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard />,
+    element: <DashboardLayout />,
     children: [
       // user routes
       {

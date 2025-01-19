@@ -182,7 +182,7 @@ const Navbar = () => {
             </a>
             <span
               className={`text-2xl font-semibold transition-all duration-300 ${
-                pathname === "/" && scrolled ? "text-black" : "text-white"
+                scrolled || pathname !== "/" ? "text-black" : "text-white"
               }`}
             >
               Elite Explore

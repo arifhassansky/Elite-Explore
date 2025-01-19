@@ -50,7 +50,7 @@ const TouristStories = () => {
                 <div className="absolute top-4 right-4 flex justify-center items-center p-2 text-white hover:text-black bg-primary hover:bg-white rounded-full duration-300">
                   {user ? (
                     <FacebookShareButton
-                      url={`https://EliteExplore.com/stories/${story.id}`}
+                      url={`https://elite-explore.netlify.app/${story._id}`}
                       quote={story.title}
                       hashtag="#TouristStory"
                     >
@@ -75,13 +75,13 @@ const TouristStories = () => {
 
         <div className="flex justify-center space-x-4 mt-8">
           <button
-            onClick={() => navigate("/all-stories")}
+            onClick={() => navigate("/community")}
             className="bg-gray-700 text-white px-6 py-2 rounded-lg shadow hover:bg-gray-800 transition"
           >
             All Stories
           </button>
           <button
-            onClick={() => navigate("/add-story")}
+            onClick={() => navigate("/dashboard/add-stories")}
             className="bg-primary text-white px-6 py-2 rounded-lg shadow hover:bg-primary-dark transition"
           >
             Add Stories

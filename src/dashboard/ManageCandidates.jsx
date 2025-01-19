@@ -65,7 +65,6 @@ const ManageCandidates = () => {
       applicantData
     );
 
-    console.log(data);
     if (
       data.updateUserStatus.modifiedCount > 0 &&
       data.result.insertedId &&

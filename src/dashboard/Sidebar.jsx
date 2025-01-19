@@ -95,7 +95,7 @@ const Sidebar = () => {
             src={user?.photo}
             alt="avatar"
             className={`${
-              isCollapse ? "w-14" : "w-8"
+              isCollapse ? "w-14 h-14" : "w-8"
             } cursor-pointer rounded-full object-cover`}
           />
 
@@ -109,7 +109,7 @@ const Sidebar = () => {
           <h3
             className={`${
               isCollapse ? "inline" : "hidden"
-            }  text-gray-300 bg-primary text-center ml-4 px-2 text-sm rounded-3xl font-meduim`}
+            }  text-gray-300 bg-primary text-center px-2 text-sm rounded-3xl font-meduim`}
           >
             {user?.role}
           </h3>
