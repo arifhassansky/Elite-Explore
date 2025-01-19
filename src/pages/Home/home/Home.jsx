@@ -1,3 +1,4 @@
+import Accordion from "../Accordion";
 import Banner from "../banner/Banner";
 import Overview from "../Overview";
 import Tourism from "../Tourism";
@@ -10,6 +11,7 @@ const Home = () => {
       <Overview />
       <Tourism />
       <TouristStories />
+      <Accordion />
     </div>
   );
 };
