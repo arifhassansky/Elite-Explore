@@ -98,22 +98,7 @@ const Navbar = () => {
           About
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/contact"
-          className={({ isActive }) =>
-            isActive
-              ? `font-black px-4 py-2 rounded no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && "text-white"
-                }`
-              : `px-4 py-2 rounded hover:text-primary no-underline ${
-                  scrolled ? "text-black" : pathname === "/" && "text-white"
-                }`
-          }
-        >
-          Contact Us
-        </NavLink>
-      </li>
+
       <li>
         <NavLink
           to="/gallery"
@@ -136,7 +121,7 @@ const Navbar = () => {
   return (
     <div
       className={`fixed z-50 top-0 w-full flex justify-center transition-all ${
-        scrolled && "backdrop-blur-md"
+        scrolled && "backdrop-blur-3xl"
       }`}
     >
       <div className="navbar w-11/12 mx-auto">
