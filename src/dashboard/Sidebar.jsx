@@ -5,6 +5,7 @@ import logo from "../assets/logo.png";
 import {
   MdAddAPhoto,
   MdAddToPhotos,
+  MdDashboard,
   MdManageAccounts,
   MdOutlineAssignmentReturned,
 } from "react-icons/md";
@@ -413,6 +414,33 @@ const Sidebar = () => {
         {/* admin routes */}
         {user?.role === "admin" && (
           <div className="mt-3 flex flex-col gap-[5px]">
+            {/* admin dashboard */}
+            <NavLink
+              to="/dashboard/admin"
+              className={`${
+                isCollapse ? "justify-between" : "justify-center"
+              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+            >
+              <div className="flex items-center gap-2">
+                <MdDashboard className="text-[1.3rem" />
+                <p
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                >
+                  Dashboard
+                </p>
+              </div>
+
+              {/* tooltip */}
+              <div
+                className={`${
+                  isCollapse ? "hidden" : "inline"
+                } absolute top-0 right-[-135px] translate-x-[20px] opacity-0 z-[-1] group-hover:translate-x-0 group-hover:opacity-100 group-hover:z-[1] transition-all duration-500`}
+              >
+                <p className="text-[0.9rem] w-max bg-primary text-white rounded px-3 py-[5px]">
+                  Dashboard
+                </p>
+              </div>
+            </NavLink>
             {/* manage profile */}
             <NavLink
               to="/dashboard"

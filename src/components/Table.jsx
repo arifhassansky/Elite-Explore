@@ -5,7 +5,7 @@ import { format } from "date-fns";
 import { toast } from "react-toastify";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
-const MyBookings = ({ data, refetch }) => {
+const Table = ({ data, refetch }) => {
   const axiosSecure = useAxiosSecure();
   const confirmCancel = (booking) => {
     toast(
@@ -128,4 +128,4 @@ const MyBookings = ({ data, refetch }) => {
   );
 };
 
-export default MyBookings;
+export default Table;

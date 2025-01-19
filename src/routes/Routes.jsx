@@ -21,6 +21,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Payment from "../dashboard/payment/Payment";
 import PaymentHistory from "../dashboard/payment/PaymentHistory";
+import AdminDashboard from "../dashboard/AdminDashboard";
 
 const router = createBrowserRouter([
   {
@@ -132,6 +133,14 @@ const router = createBrowserRouter([
         element: <GuideAssignedTours />,
       },
       // admin routes
+      {
+        path: "/dashboard/admin",
+        element: (
+          <AdminRoute>
+            <AdminDashboard />
+          </AdminRoute>
+        ),
+      },
       {
         path: "/dashboard/add-package",
         element: (
