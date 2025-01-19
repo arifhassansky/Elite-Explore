@@ -4,9 +4,9 @@ import { MdDelete } from "react-icons/md";
 import { imageUpload } from "../utils/ImageBbUpload";
 import Button from "../components/Button";
 import useAuth from "../hooks/useAuth";
-import useAxiosPublic from "../hooks/useAxiosPublic";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AddStory = () => {
   const [title, setTitle] = useState("");
@@ -14,7 +14,7 @@ const AddStory = () => {
   const [images, setImages] = useState([]);
   const [imageLinks, setImageLinks] = useState([]);
   const { user } = useAuth();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
 
   // Handle selecting image
@@ -60,7 +60,7 @@ const AddStory = () => {
       name: user?.displayName,
       email: user?.email,
     };
-    const { data } = await axiosPublic.post("/add-story", storyData);
+    const { data } = await axiosSecure.post("/add-story", storyData);
     if (data.insertedId) {
       toast.success("Story added successfully");
       resetForm();

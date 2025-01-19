@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Card = ({ tour }) => {
-  const { _id, photo, type, title, price, description } = tour;
+  const { _id, photo, type, title, price, description } = tour || {};
 
   return (
     <div className="group border border-gray-300 w-full relative rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
@@ -50,7 +50,7 @@ const Card = ({ tour }) => {
         <div className="flex-grow h-44">
           <h3 className="text-lg font-semibold mb-2">{title}</h3>
           <p className="text-gray-600">
-            {description.slice(0, 150)}
+            {description?.slice(0, 150)}
             <span className="font-semibold cursor-pointer"> more...</span>
           </p>
         </div>

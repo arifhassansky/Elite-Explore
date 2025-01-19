@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import useAuth from "../hooks/useAuth";
-// import authContext from "../context/AuthContext";
+import useLoadUser from "../hooks/useLoadUser";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { user, logOut } = useAuth();
+  const { logOut, user } = useAuth();
+  const [dbUser] = useLoadUser();
   const { pathname } = useLocation();
 
   const handleLogout = async () => {
@@ -198,7 +199,7 @@ const Navbar = () => {
             <div className="group relative inline-block">
               <img
                 className="w-12 h-12 rounded-full object-cover cursor-pointer"
-                src={user?.photoURL}
+                src={dbUser?.photo}
                 referrerPolicy="no-referrer"
                 alt="Profile Image"
                 onClick={toggleDropdownProfile}
@@ -208,10 +209,10 @@ const Navbar = () => {
                 <div className="absolute z-[1000] right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
                   <div className="p-4">
                     <p className="text-sm font-medium text-black">
-                      {user?.displayName}
+                      {dbUser?.name}
                     </p>
                     <p className="text-xs font-medium text-gray-400">
-                      {user?.email}
+                      {dbUser?.email}
                     </p>
                   </div>
 

@@ -74,7 +74,22 @@ const Table = ({ data, refetch }) => {
                   <td className="px-4 py-2">{booking.guide.name}</td>
                   <td className="px-4 py-2">{formattedTourDate}</td>
                   <td className="px-4 py-2">{booking.price}</td>
-                  <td className="px-4 py-2">{booking.status}</td>
+                  <td className="px-4 py-2">
+                    {" "}
+                    <span
+                      className={`badge ${
+                        booking.status === "Pending"
+                          ? "badge-warning"
+                          : booking.status === "in review"
+                          ? "badge-info"
+                          : booking.status === "accepted"
+                          ? "badge-success"
+                          : "badge-error"
+                      }`}
+                    >
+                      {booking.status}
+                    </span>
+                  </td>
                   <td className="px-4 py-2">
                     {data.length && booking.status === "pending" ? (
                       <Link
@@ -88,7 +103,7 @@ const Table = ({ data, refetch }) => {
                         className="btn bg-green-500 text-white hover:bg-green-700"
                         disabled
                       >
-                        Pay
+                        {booking.status !== "pending" ? " Paid" : "Pay"}
                       </Link>
                     )}
                   </td>

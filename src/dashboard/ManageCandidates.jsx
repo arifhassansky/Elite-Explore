@@ -7,10 +7,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const ManageCandidates = () => {
   const axiosSecure = useAxiosSecure();
-  // const [application, setapplication] = useState([]);
-  // console.log(application);
 
-  // Fetch applicants from the backend
   const { data: applicants, refetch } = useQuery({
     queryKey: ["applicants"],
     queryFn: async () => {
@@ -18,10 +15,6 @@ const ManageCandidates = () => {
       return data;
     },
   });
-
-  // useEffect(() => {
-  //   axiosSecure.get("/applications").then((res) => setapplication(res.data));
-  // }, [axiosSecure]);
 
   const confirmAccept = (applicant) => {
     toast(

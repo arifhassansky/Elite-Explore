@@ -17,8 +17,7 @@ const Login = () => {
   const axiosPublic = useAxiosPublic();
 
   const handleGoogleLogin = () => {
-    googleSignIn().then(async (res) => {
-      console.log(res);
+    googleSignIn().then((res) => {
       const userData = {
         name: res?.user?.displayName,
         email: res?.user?.email,
@@ -28,7 +27,7 @@ const Login = () => {
       };
 
       // Save user to the database
-      await axiosPublic.post("/users", userData);
+      axiosPublic.post("/users", userData);
 
       // Navigate to the intended page or home
       navigate(location.state?.from || "/");

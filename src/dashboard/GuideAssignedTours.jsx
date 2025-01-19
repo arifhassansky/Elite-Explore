@@ -1,24 +1,24 @@
 import useAuth from "../hooks/useAuth";
-import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import moment from "moment";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const GuideAssignedTours = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
 
   const { data: tours = [], refetch } = useQuery({
     queryKey: ["tours"],
     enabled: !!user?.email,
     queryFn: async () => {
-      const res = await axiosPublic.get(`/guides-asigned-tours/${user?.email}`);
+      const res = await axiosSecure.get(`/guides-asigned-tours/${user?.email}`);
       return res.data;
     },
   });
 
   const handleAccept = async (id) => {
-    const { data } = await axiosPublic.patch(`/bookings-accept/${id}`);
+    const { data } = await axiosSecure.patch(`/bookings-accept/${id}`);
     if (data.modifiedCount > 0) {
       refetch();
       toast.success("You have Accepted the booking");
@@ -28,7 +28,7 @@ const GuideAssignedTours = () => {
   };
 
   const handleReject = async (id) => {
-    const { data } = await axiosPublic.patch(`/bookings-reject/${id}`);
+    const { data } = await axiosSecure.patch(`/bookings-reject/${id}`);
     if (data.modifiedCount > 0) {
       refetch();
       toast.success("You have rejected the booking");
@@ -96,9 +96,9 @@ const GuideAssignedTours = () => {
                     className={`badge ${
                       tour.status === "Pending"
                         ? "badge-warning"
-                        : tour.status === "In Review"
+                        : tour.status === "in review"
                         ? "badge-info"
-                        : tour.status === "Accepted"
+                        : tour.status === "accepted"
                         ? "badge-success"
                         : "badge-error"
                     }`}
@@ -117,7 +117,9 @@ const GuideAssignedTours = () => {
                   <button
                     className="btn btn-error btn-sm"
                     onClick={() => confirmReject(tour._id)}
-                    disabled={tour.status === "rejected"}
+                    disabled={
+                      tour.status === "rejected" || tour.status === "accepted"
+                    }
                   >
                     Reject
                   </button>

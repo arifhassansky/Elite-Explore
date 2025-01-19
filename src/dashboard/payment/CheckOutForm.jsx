@@ -13,7 +13,6 @@ const CheckOutForm = ({ id }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [booking, setBooking] = useState();
-  console.log(booking);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -95,7 +94,10 @@ const CheckOutForm = ({ id }) => {
   };
   return (
     <div className="payment-container">
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 fgrid place-items-center"
+      >
         <CardElement
           options={{
             style: {
@@ -111,7 +113,7 @@ const CheckOutForm = ({ id }) => {
               },
             },
           }}
-          className="border p-3 rounded-lg shadow-sm"
+          className="w-1/2 border p-3 rounded-lg shadow-sm"
         />
 
         <button

@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../hooks/useAxiosPublic";
 import useLoadUser from "../hooks/useLoadUser";
 import { FacebookShareButton } from "react-share";
 import { FaEdit, FaShareAlt, FaTrash } from "react-icons/fa";
@@ -7,22 +6,23 @@ import StorySlider from "../components/StorySlider";
 import SectionTitle from "../components/SectionTitle";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const ManageStories = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const [user] = useLoadUser();
 
   const { data: stories = [], refetch } = useQuery({
     queryKey: ["stories", user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
-      const { data } = await axiosPublic.get(`/stories/${user?.email}`);
+      const { data } = await axiosSecure.get(`/stories/${user?.email}`);
       return data;
     },
   });
 
   const handleDelete = async (id) => {
-    const { data } = await axiosPublic.delete(`/stories/${id}`);
+    const { data } = await axiosSecure.delete(`/stories/${id}`);
     if (data.deletedCount > 0) {
       refetch();
       toast.success("Story deleted successfully");

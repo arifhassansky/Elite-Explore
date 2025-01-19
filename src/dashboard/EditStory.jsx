@@ -3,9 +3,9 @@ import { FiUpload } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import { imageUpload } from "../utils/ImageBbUpload";
 import Button from "../components/Button";
-import useAxiosPublic from "../hooks/useAxiosPublic";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const EditStory = () => {
   const [title, setTitle] = useState("");
@@ -15,13 +15,13 @@ const EditStory = () => {
   const [removedPhotos, setRemovedPhotos] = useState([]); // Images to be removed
   const [initialImageLinks, setInitialImageLinks] = useState([]);
 
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const { id } = useParams(); // Assuming story ID is passed in the URL
 
   useEffect(() => {
     const fetchStoryData = async () => {
-      const { data } = await axiosPublic.get(`/story/${id}`);
+      const { data } = await axiosSecure.get(`/story/${id}`);
       if (data) {
         setTitle(data.title);
         setExcerpt(data.excerpt);
@@ -30,7 +30,7 @@ const EditStory = () => {
       }
     };
     fetchStoryData();
-  }, [id, axiosPublic]);
+  }, [id, axiosSecure]);
 
   // Handle selecting new images
   const handleImageChange = (e) => {
@@ -78,7 +78,7 @@ const EditStory = () => {
     };
 
     try {
-      const { data } = await axiosPublic.put(`/update-story/${id}`, storyData);
+      const { data } = await axiosSecure.put(`/update-story/${id}`, storyData);
 
       if (data.message) {
         toast.success(data.message);

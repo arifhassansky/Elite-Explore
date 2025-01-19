@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import useLoadUser from "../hooks/useLoadUser";
 import { imageUpload } from "../utils/ImageBbUpload";
-import useAxiosPublic from "../hooks/useAxiosPublic";
 import { toast } from "react-toastify";
 import SecondBtn from "../components/SecondBtn";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Profile = () => {
   const [user, refetch] = useLoadUser();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editableName, setEditableName] = useState("");
   const [photo, setPhoto] = useState(null);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
   const handleUpdate = async () => {
     let uploadedPhotoUrl = user?.photo;
@@ -24,7 +24,7 @@ const Profile = () => {
         photo: uploadedPhotoUrl,
       };
 
-      const { data } = await axiosPublic.patch(
+      const { data } = await axiosSecure.patch(
         `/update-profile/${user._id}`,
         updateInfo
       );
@@ -40,7 +40,7 @@ const Profile = () => {
     <div className="pt-36">
       <div className="text-center">
         <h2 className="font-semibold text-xl md:text-4xl mb-2">
-          Welcome, <span className="text-primary">{user.name}!</span>
+          Welcome, <span className="text-primary">{user?.name}!</span>
         </h2>
         <p className="text-gray-500 text-xl tracking-wider">
           Below, you can view and update your profile information.
@@ -49,16 +49,16 @@ const Profile = () => {
 
       <div className="flex flex-col-reverse md:flex-row justify-center items-center gap-8 p-16 bg-primaryBg">
         <div className="flex flex-col justify-center">
-          <p className="text-gray-600 text-lg">Email: {user.email}</p>
+          <p className="text-gray-600 text-lg">Email: {user?.email}</p>
           <p className="text-gray-600 text-lg mb-4">
-            Role: {user.role || "User"}
+            Role: {user?.role || "User"}
           </p>
 
           <Link onClick={() => setIsModalOpen(true)}>
             <Button text="Edit Profile" />
           </Link>
 
-          {user.role === "user" && (
+          {user?.role === "user" && (
             <Link className="mt-4" to="/dashboard/join-guide">
               <SecondBtn text="Apply For Tour Guide" />
             </Link>
@@ -68,7 +68,7 @@ const Profile = () => {
           <figure className="border p-4 rounded-xl">
             <img
               className="w-56 h-56 object-cover rounded-xl"
-              src={user.photo || "default-photo-url.jpg"}
+              src={user?.photo || "default-photo-url.jpg"}
               alt="Profile"
             />
           </figure>
@@ -83,7 +83,7 @@ const Profile = () => {
             <label className="block mb-2 text-gray-700">Name</label>
             <input
               type="text"
-              defaultValue={user.name}
+              defaultValue={user?.name}
               onChange={(e) => setEditableName(e.target.value)}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             />

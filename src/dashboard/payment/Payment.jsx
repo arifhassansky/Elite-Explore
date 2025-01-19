@@ -11,9 +11,10 @@ const Payment = () => {
   return (
     <div className="p-16">
       <SectionTitle
-        heading="Payment"
-        subHeading="Make a Payment to confirm your booking"
+        title="Payment"
+        subtitle="Make a Payment to confirm your booking"
       />
+
       <Elements stripe={stripePromise}>
         <CheckOutForm id={id} />
       </Elements>
