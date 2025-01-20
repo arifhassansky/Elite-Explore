@@ -9,7 +9,7 @@ const Trips = () => {
         title="Our Exclusive Tour Packages"
         subtitle="Curated packages for unforgettable travel experiences."
       />
-      <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  gap-6">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-6">
         {tours.map((tour) => (
           <Card key={tour._id} tour={tour} />
         ))}

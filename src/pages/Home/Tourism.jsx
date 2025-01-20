@@ -36,7 +36,7 @@ const Tourism = () => {
             </Tab>
           </TabList>
           <TabPanel>
-            <div className="grid md:grid-cols-3 mt-8 gap-20">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 mt-8 gap-20">
               {tours.map((tour) => (
                 <Card
                   key={tour._id}
@@ -48,7 +48,7 @@ const Tourism = () => {
           </TabPanel>
 
           <TabPanel>
-            <div className="grid md:grid-cols-6 gap-6 mt-8">
+            <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 mt-8">
               {guides.map((guide) => (
                 <TourGuideCard key={guide._id} guide={guide} />
               ))}

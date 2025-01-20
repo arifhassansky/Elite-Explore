@@ -16,7 +16,7 @@ const ManageUsers = () => {
     { value: "guide", label: "Guide" },
   ];
 
-  const { data: usersData = { users: [], total: 0 } } = useQuery({
+  const { data: usersData = { users: [], total: 0 }, refetch } = useQuery({
     queryKey: ["users", search, roleFilter, currentPage],
     queryFn: async () => {
       const params = {
@@ -71,10 +71,10 @@ const ManageUsers = () => {
   };
   // delete a user
   const handleDelete = async (id) => {
-    console.log(id);
     const { data } = await axiosSecure.delete(`/delete-user/${id}`);
-    console.log(data);
+
     if (data.deletedCount > 0) {
+      refetch();
       toast.success("User deleted successfully");
     }
   };

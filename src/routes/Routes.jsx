@@ -25,6 +25,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import AboutUs from "../pages/AboutUs";
 import GuideProfile from "../pages/GuideProfile";
 import ResetPassword from "../pages/ResetPassword";
+import ImageGallery from "../pages/ImageGallary";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <AboutUs />,
+      },
+      {
+        path: "gallery",
+        element: <ImageGallery />,
       },
       {
         path: "/details/:id",

@@ -5,7 +5,7 @@ const Overview = () => {
     <section className="bg-gray-100 py-12">
       <div className="w-11/12 mx-auto px-6 lg:px-20">
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4">
             Explore Bangladesh with Confidence
           </h2>
           <p className="text-gray-600 text-lg mb-8">
@@ -54,7 +54,7 @@ const Overview = () => {
         </div>
         <div className="text-center mt-12">
           <Link
-            href="/trips"
+            to="/trips"
             className="bg-primary text-white px-6 py-3 rounded-md shadow hover:bg-secondary transition-all"
           >
             Start Planning Your Journey Today

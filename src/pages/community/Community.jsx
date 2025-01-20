@@ -30,7 +30,7 @@ const Community = () => {
     <div className="w-10/12 mx-auto my-28">
       {/* Title and Subtitle */}
       <div className="text-center">
-        <h2 className="text-5xl font-bold text-center mb-4">
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">
           Explore Tourist Stories
         </h2>
         <p className="text-xl text-center text-gray-600 mb-12">
