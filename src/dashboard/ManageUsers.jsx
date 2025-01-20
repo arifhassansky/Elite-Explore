@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Select from "react-select";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { toast } from "react-toastify";
 
 const ManageUsers = () => {
   const axiosSecure = useAxiosSecure();
@@ -36,6 +37,46 @@ const ManageUsers = () => {
     setSearch("");
     setRoleFilter("");
     setCurrentPage(1);
+  };
+
+  const confirmDelete = (user) => {
+    toast(
+      ({ closeToast }) => (
+        <div className="flex items-center justify-between gap-2 p-2">
+          <p className="text-sm text-gray-700 flex-1">
+            Are you sure delete
+            <span className="text-green-600"> {user.name}? </span>
+          </p>
+          <div className="flex gap-2">
+            <button
+              className="bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1 rounded"
+              onClick={() => {
+                handleDelete(user._id);
+                closeToast();
+              }}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-green-600 hover:bg-green-700 text-white text-sm px-3 py-1 rounded"
+              onClick={closeToast}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      ),
+      { autoClose: false, closeOnClick: false }
+    );
+  };
+  // delete a user
+  const handleDelete = async (id) => {
+    console.log(id);
+    const { data } = await axiosSecure.delete(`/delete-user/${id}`);
+    console.log(data);
+    if (data.deletedCount > 0) {
+      toast.success("User deleted successfully");
+    }
   };
 
   return (
@@ -109,10 +150,10 @@ const ManageUsers = () => {
                     {user.role}
                   </td>
                   <td className="px-4 py-2 text-center border border-gray-300">
-                    <button className="btn btn-sm bg-green-500 hover:bg-green-600">
-                      Edit
-                    </button>
-                    <button className="btn btn-sm btn-danger ml-2">
+                    <button
+                      onClick={() => confirmDelete(user)}
+                      className="btn btn-sm bg-red-500 text-white hover:bg-red-700 ml-2"
+                    >
                       Delete
                     </button>
                   </td>

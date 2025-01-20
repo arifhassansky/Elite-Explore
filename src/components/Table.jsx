@@ -7,6 +7,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Table = ({ data, refetch }) => {
   const axiosSecure = useAxiosSecure();
+
   const confirmCancel = (booking) => {
     toast(
       ({ closeToast }) => (
@@ -38,6 +39,7 @@ const Table = ({ data, refetch }) => {
       { autoClose: false, closeOnClick: false }
     );
   };
+
   const handleCancel = async (booking) => {
     const { data } = await axiosSecure.delete(`/booking/${booking?._id}`);
     if (data.deletedCount > 0) {
