@@ -46,13 +46,12 @@ This project is developed using **React** for the frontend, **Node.js** with **E
 <div align="center">
   <img height="300" src="https://i.ibb.co.com/4KFVhJR/Screenshot-2025-01-20-191126.png">
 </div>
-<div align="center">
-  <img height="300" src="https://i.ibb.co.com/dDNJ9Ks/Screenshot-2025-01-20-190758.png">
-</div>
 
 ### Tourist Dashboard
 
-![Dashboard Screenshot](https://i.ibb.co.com/dDNJ9Ks/Screenshot-2025-01-20-190758.png)
+<div align="center">
+  <img height="300" src="https://i.ibb.co.com/dDNJ9Ks/Screenshot-2025-01-20-190758.png">
+</div>
 
 ## 🔧 Technologies Used
 
