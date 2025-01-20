@@ -22,8 +22,8 @@ This project is developed using **React** for the frontend, **Node.js** with **E
 
 ## 👤 Admin Credentials
 
-- **Admin Username**: admin@touristguide.com
-- **Admin Password**: admin123
+- **Admin Username**: instructor@ph.com
+- **Admin Password**: Instructor20@
 
 ## 🚀 Features
 
@@ -43,11 +43,11 @@ This project is developed using **React** for the frontend, **Node.js** with **E
 
 ### Homepage
 
-![Homepage Screenshot](Your-Screenshot-URL1)
+![Homepage Screenshot](https://i.ibb.co.com/hXnZvBk/Screenshot-2025-01-20-182150.png)
 
 ### Tourist Dashboard
 
-![Dashboard Screenshot](Your-Screenshot-URL2)
+![Dashboard Screenshot](https://i.ibb.co.com/RSybH4s/Screenshot-2025-01-20-182501.png)
 
 ## 🔧 Technologies Used
 
