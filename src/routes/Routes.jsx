@@ -24,6 +24,7 @@ import AdminDashboard from "../dashboard/AdminDashboard";
 import DashboardLayout from "../layouts/DashboardLayout";
 import AboutUs from "../pages/AboutUs";
 import GuideProfile from "../pages/GuideProfile";
+import ResetPassword from "../pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/reset-password",
+        element: <ResetPassword />,
       },
     ],
   },

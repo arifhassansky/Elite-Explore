@@ -94,6 +94,7 @@ const Login = () => {
             <input
               type="email"
               id="email"
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="w-full bg-transparent px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-secondary"
             />
@@ -122,9 +123,9 @@ const Login = () => {
               />
               <span className="ml-2">Remember Me</span>
             </label>
-            <a href="#" className="hover:underline">
+            <Link to="/reset-password" className="hover:underline">
               Forgot Password?
-            </a>
+            </Link>
           </div>
 
           {/* Submit Button */}
