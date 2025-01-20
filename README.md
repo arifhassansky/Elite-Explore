@@ -47,7 +47,7 @@ This project is developed using **React** for the frontend, **Node.js** with **E
 
 ### Tourist Dashboard
 
-![Dashboard Screenshot](https://i.ibb.co.com/RSybH4s/Screenshot-2025-01-20-182501.png)
+![Dashboard Screenshot](https://i.ibb.co.com/dDNJ9Ks/Screenshot-2025-01-20-190758.png)
 
 ## 🔧 Technologies Used
 
