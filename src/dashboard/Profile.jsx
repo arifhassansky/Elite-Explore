@@ -15,24 +15,26 @@ const Profile = () => {
   const axiosSecure = useAxiosSecure();
 
   const handleUpdate = async () => {
+    const updatedName = editableName || user?.name;
+
     let uploadedPhotoUrl = user?.photo;
     if (photo) {
       uploadedPhotoUrl = await imageUpload(photo);
+    }
 
-      const updateInfo = {
-        name: editableName,
-        photo: uploadedPhotoUrl,
-      };
+    const updateInfo = {
+      name: updatedName,
+      photo: uploadedPhotoUrl,
+    };
 
-      const { data } = await axiosSecure.patch(
-        `/update-profile/${user._id}`,
-        updateInfo
-      );
-      if (data.modifiedCount > 0) {
-        refetch();
-        setIsModalOpen(false);
-        toast.success("Profile updated successfully");
-      }
+    const { data } = await axiosSecure.patch(
+      `/update-profile/${user._id}`,
+      updateInfo
+    );
+    if (data.modifiedCount > 0) {
+      refetch();
+      setIsModalOpen(false);
+      toast.success("Profile updated successfully");
     }
   };
 
