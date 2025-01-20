@@ -43,7 +43,7 @@ This project is developed using **React** for the frontend, **Node.js** with **E
 
 ### Homepage
 
-![Homepage Screenshot](https://i.ibb.co.com/hXnZvBk/Screenshot-2025-01-20-182150.png)
+![Homepage Screenshot](https://i.ibb.co.com/4KFVhJR/Screenshot-2025-01-20-191126.png)
 
 ### Tourist Dashboard
 
