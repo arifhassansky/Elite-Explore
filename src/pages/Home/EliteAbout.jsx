@@ -16,17 +16,16 @@ const EliteAbout = () => {
             <img
               src="https://i.ibb.co.com/rdZw3nS/about-2.jpg"
               alt="Friends enjoying"
-              className="w-72 h-48 object-cover border-2 mb-6 border-gray-200 p-2 rounded-lg"
+              className="w-72 h-40 object-cover border-2 mb-6 border-gray-200 p-2 rounded-lg"
             />
             {/* Video Section */}
-
-            <iframe
-              src="https://www.youtube.com/embed/4FrPZoofdBQ?si=IrJEzgjWefvIRiQm"
-              className="rounded-lg shadow-lg"
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <div className="mt-1">
+              <iframe
+                title="vimeo-player"
+                src="https://player.vimeo.com/video/1048403247?h=d599a83896"
+                width="290"
+              ></iframe>
+            </div>
           </div>
         </div>
 
@@ -35,7 +34,7 @@ const EliteAbout = () => {
           <h5 className="text-gray-500 uppercase text-lg font-medium mb-1">
             About Elite Explore
           </h5>
-          <h2 className="text-5xl font-bold text-gray-800 mb-4 leading-[60px]">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4 md:leading-[60px]">
             World Best Travel <br className="hidden md:block" /> Agency Company{" "}
             <br className="hidden md:block" /> Since 2008.
           </h2>
