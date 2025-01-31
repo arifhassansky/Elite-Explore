@@ -97,7 +97,7 @@ const AddPackageForm = () => {
         <form onSubmit={handleSubmit}>
           {/* Grid Layout */}
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-            <div className="mb-1">
+            <div className="mb-1 col-span-2 md:col-span-1">
               <label className="block font-semibold  mb-1">Title*</label>
               <input
                 type="text"
@@ -109,7 +109,7 @@ const AddPackageForm = () => {
                 maxLength="100"
               />
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <label className="block font-semibold  mb-1">Price*</label>
               <input
                 type="number"

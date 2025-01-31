@@ -127,21 +127,28 @@ const Sidebar = () => {
           <div className="mt-3 flex flex-col gap-[5px]">
             {/* manage profile */}
             <NavLink
-              to="/dashboard"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              to="/dashboard/profile"
+              end
+              className={({ isActive }) =>
+                `${
+                  isCollapse ? "justify-between" : "justify-center"
+                } flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "hover:bg-white text-gray-300 hover:text-black"
+                }`
+              }
             >
               <div className="flex items-center gap-2">
-                <FaUserEdit className="text-[1.3rem" />
+                <FaUserEdit className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Manage Profile
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -156,20 +163,26 @@ const Sidebar = () => {
             {/* my bookings */}
             <NavLink
               to="my-bookings"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) =>
+                `${
+                  isCollapse ? "justify-between" : "justify-center"
+                } flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "hover:bg-white text-gray-300 hover:text-black"
+                }`
+              }
             >
               <div className="flex items-center gap-2">
-                <FaAddressBook className="text-[1.3rem" />
+                <FaAddressBook className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   My Bookings
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -184,20 +197,26 @@ const Sidebar = () => {
             {/* add stories */}
             <NavLink
               to="add-stories"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) =>
+                `${
+                  isCollapse ? "justify-between" : "justify-center"
+                } flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "hover:bg-white text-gray-300 hover:text-black"
+                }`
+              }
             >
               <div className="flex items-center gap-2">
-                <MdAddAPhoto className="text-[1.3rem" />
+                <MdAddAPhoto className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Add Stories
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -212,20 +231,26 @@ const Sidebar = () => {
             {/* manage stories */}
             <NavLink
               to="manage-stories"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) =>
+                `${
+                  isCollapse ? "justify-between" : "justify-center"
+                } flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "hover:bg-white text-gray-300 hover:text-black"
+                }`
+              }
             >
               <div className="flex items-center gap-2">
-                <MdManageAccounts className="text-[1.3rem" />
+                <MdManageAccounts className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Manage Stories
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -238,23 +263,28 @@ const Sidebar = () => {
             </NavLink>
 
             {/* Join as Tour Guide */}
-            {/* manage stories */}
             <NavLink
               to="join-guide"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) =>
+                `${
+                  isCollapse ? "justify-between" : "justify-center"
+                } flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "hover:bg-white text-gray-300 hover:text-black"
+                }`
+              }
             >
               <div className="flex items-center gap-2">
-                <FaHandshakeAngle className="text-[1.3rem" />
+                <FaHandshakeAngle className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Join as Tour Guide
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -265,22 +295,30 @@ const Sidebar = () => {
                 </p>
               </div>
             </NavLink>
+
+            {/* payment history */}
             <NavLink
               to="payment-history"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) =>
+                `${
+                  isCollapse ? "justify-between" : "justify-center"
+                } flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "hover:bg-white text-gray-300 hover:text-black"
+                }`
+              }
             >
               <div className="flex items-center gap-2">
-                <FaHistory className="text-[1.3rem" />
+                <FaHistory className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Payment History
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -299,21 +337,28 @@ const Sidebar = () => {
           <div className="mt-3 flex flex-col gap-[5px]">
             {/* manage profile */}
             <NavLink
-              to="/dashboard"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              to="/dashboard/profile"
+              end
+              className={({ isActive }) =>
+                `${
+                  isCollapse ? "justify-between" : "justify-center"
+                } flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "hover:bg-white text-gray-300 hover:text-black"
+                }`
+              }
             >
               <div className="flex items-center gap-2">
-                <FaUserEdit className="text-[1.3rem" />
+                <FaUserEdit className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Manage Profile
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -325,23 +370,29 @@ const Sidebar = () => {
               </div>
             </NavLink>
 
-            {/* My assigned tours*/}
+            {/* My assigned tours */}
             <NavLink
               to="my-assigned-tours"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) =>
+                `${
+                  isCollapse ? "justify-between" : "justify-center"
+                } flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "hover:bg-white text-gray-300 hover:text-black"
+                }`
+              }
             >
               <div className="flex items-center gap-2">
-                <MdOutlineAssignmentReturned className="text-[1.3rem" />
+                <MdOutlineAssignmentReturned className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   My Assigned Tours
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -356,20 +407,26 @@ const Sidebar = () => {
             {/* add stories */}
             <NavLink
               to="add-stories"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) =>
+                `${
+                  isCollapse ? "justify-between" : "justify-center"
+                } flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "hover:bg-white text-gray-300 hover:text-black"
+                }`
+              }
             >
               <div className="flex items-center gap-2">
-                <MdAddAPhoto className="text-[1.3rem" />
+                <MdAddAPhoto className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Add Stories
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -384,20 +441,26 @@ const Sidebar = () => {
             {/* manage stories */}
             <NavLink
               to="manage-stories"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) =>
+                `${
+                  isCollapse ? "justify-between" : "justify-center"
+                } flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "hover:bg-white text-gray-300 hover:text-black"
+                }`
+              }
             >
               <div className="flex items-center gap-2">
-                <MdManageAccounts className="text-[1.3rem" />
+                <MdManageAccounts className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Manage Stories
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -414,23 +477,29 @@ const Sidebar = () => {
         {/* admin routes */}
         {user?.role === "admin" && (
           <div className="mt-3 flex flex-col gap-[5px]">
-            {/* admin dashboard */}
+            {/* Admin Dashboard */}
             <NavLink
               to="/dashboard/admin"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) => `
+              ${isCollapse ? "justify-between" : "justify-center"}
+              flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group
+              ${
+                isActive
+                  ? "bg-primary text-white"
+                  : "hover:bg-white text-gray-300 hover:text-black"
+              }
+            `}
             >
               <div className="flex items-center gap-2">
-                <MdDashboard className="text-[1.3rem" />
+                <MdDashboard className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Dashboard
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -441,23 +510,31 @@ const Sidebar = () => {
                 </p>
               </div>
             </NavLink>
-            {/* manage profile */}
+
+            {/* Manage Profile */}
             <NavLink
-              to="/dashboard"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              to="/dashboard/profile"
+              end
+              className={({ isActive }) => `
+              ${isCollapse ? "justify-between" : "justify-center"}
+              flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group
+              ${
+                isActive
+                  ? "bg-primary text-white"
+                  : "hover:bg-white text-gray-300 hover:text-black"
+              }
+            `}
             >
               <div className="flex items-center gap-2">
-                <FaUserEdit className="text-[1.3rem" />
+                <FaUserEdit className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Manage Profile
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -472,20 +549,26 @@ const Sidebar = () => {
             {/* Add Package */}
             <NavLink
               to="add-package"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) => `
+              ${isCollapse ? "justify-between" : "justify-center"}
+              flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group
+              ${
+                isActive
+                  ? "bg-primary text-white"
+                  : "hover:bg-white text-gray-300 hover:text-black"
+              }
+            `}
             >
               <div className="flex items-center gap-2">
-                <MdAddToPhotos className="text-[1.3rem" />
+                <MdAddToPhotos className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Add Package
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -500,20 +583,26 @@ const Sidebar = () => {
             {/* Manage Users */}
             <NavLink
               to="manage-users"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) => `
+              ${isCollapse ? "justify-between" : "justify-center"}
+              flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group
+              ${
+                isActive
+                  ? "bg-primary text-white"
+                  : "hover:bg-white text-gray-300 hover:text-black"
+              }
+            `}
             >
               <div className="flex items-center gap-2">
-                <FaUsers className="text-[1.3rem" />
+                <FaUsers className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Manage Users
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"
@@ -528,20 +617,26 @@ const Sidebar = () => {
             {/* Manage Candidates */}
             <NavLink
               to="manage-candidates"
-              className={`${
-                isCollapse ? "justify-between" : "justify-center"
-              } flex items-center w-full hover:bg-white text-gray-300 hover:text-black p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group`}
+              className={({ isActive }) => `
+              ${isCollapse ? "justify-between" : "justify-center"}
+              flex items-center w-full p-[5px] rounded-md cursor-pointer transition-all duration-200 relative group
+              ${
+                isActive
+                  ? "bg-primary text-white"
+                  : "hover:bg-white text-gray-300 hover:text-black"
+              }
+            `}
             >
               <div className="flex items-center gap-2">
-                <FaUsersCog className="text-[1.3rem" />
+                <FaUsersCog className="text-[1.3rem]" />
                 <p
-                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem] `}
+                  className={`${isCollapse ? "inline" : "hidden"} text-[1rem]`}
                 >
                   Manage Candidates
                 </p>
               </div>
 
-              {/* tooltip */}
+              {/* Tooltip */}
               <div
                 className={`${
                   isCollapse ? "hidden" : "inline"

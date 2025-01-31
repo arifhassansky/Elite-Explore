@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Banner.css";
 import "animate.css";
 
@@ -68,10 +69,15 @@ const Banner = () => {
                   {banner.text}
                 </p>
 
-                <button className="relative px-6 py-3 font-bold text-white rounded-lg group mt-4 ">
-                  <span className="absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-primary ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0"></span>
-                  <span className="absolute inset-0 w-full h-full transition duration-300 transform translate-x-1 translate-y-1 bg-purple-950 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen"></span>
-                  <span className="relative">Explore More</span>
+                <button className="mt-6">
+                  <Link
+                    to="/trips"
+                    className="relative px-6 py-3 font-bold text-white rounded-lg group"
+                  >
+                    <span className="absolute inset-0 w-full h-full transition duration-300 transform -translate-x-1 -translate-y-1 bg-primary ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                    <span className="absolute inset-0 w-full h-full transition duration-300 transform translate-x-1 translate-y-1 bg-purple-950 ease opacity-80 group-hover:translate-x-0 group-hover:translate-y-0 mix-blend-screen"></span>
+                    <span className="relative">Explore More</span>
+                  </Link>
                 </button>
               </div>
               <div className="md:w-1/2 pt-4 md:pt-0 grid grid-cols-3 gap-4 pr-8 animate__animated animate__fadeInRight">

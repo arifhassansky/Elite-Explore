@@ -83,7 +83,7 @@ const ManageUsers = () => {
     <div className="flex flex-col min-h-screen px-8 py-6">
       <div className="w-11/12 mx-auto flex-grow">
         {/* Search and Filter */}
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-between items-center mb-4">
           <div className="flex gap-2">
             <input
               type="text"
@@ -93,7 +93,7 @@ const ManageUsers = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
             <button
-              className="rounded-lg px-4 py-2 bg-primary text-white hover:bg-secondary"
+              className="rounded-lg px-1 md:px-4 py-2 bg-primary text-white hover:bg-secondary"
               onClick={() => setCurrentPage(1)}
             >
               Search
@@ -114,12 +114,12 @@ const ManageUsers = () => {
               setCurrentPage(1);
             }}
             placeholder="Filter by Role"
-            className="w-1/5"
+            className="md:w-1/5"
           />
         </div>
 
         {/* User Table */}
-        <div className="overflow-x-auto rounded-lg">
+        <div className="overflow-x-auto rounded-lg max-w-[310px] md:max-w-[620px] lg:max-w-full mx-auto">
           <table className="table-auto w-full text-sm border border-gray-300">
             <thead>
               <tr className="bg-secondary text-white text-base">

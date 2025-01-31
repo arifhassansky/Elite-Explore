@@ -6,6 +6,8 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { FaShareAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 import StorySlider from "../../components/StorySlider";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const TouristStories = () => {
   const { user } = useAuth();
@@ -17,6 +19,7 @@ const TouristStories = () => {
     axiosPublic.get("/randomStories").then((res) => {
       setStories(res.data);
     });
+    AOS.init();
   }, [axiosPublic]);
 
   const handleShare = () => {
@@ -28,7 +31,11 @@ const TouristStories = () => {
   };
 
   return (
-    <div className="space-y-8 py-16 bg-gray-100">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      className="space-y-8 py-16 bg-gray-100"
+    >
       <div className="w-10/12 mx-auto">
         <h2 className="text-5xl font-bold text-center mb-20">
           Tourist Stories

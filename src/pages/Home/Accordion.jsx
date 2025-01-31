@@ -1,11 +1,17 @@
 // icons
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import faq from "../../assets/faq.json";
 import Lottie from "lottie-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Accordion = () => {
   const [isAccordingOpen, setIsAccordingOpen] = useState(0);
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   // according data
   const accordingData = [
@@ -46,7 +52,11 @@ const Accordion = () => {
     setIsAccordingOpen((prevIndex) => (prevIndex === index ? null : index));
 
   return (
-    <div className="w-10/12 mx-auto my-20">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      className="w-10/12 mx-auto my-20"
+    >
       <h3 className="font-bold text-center text-3xl md:text-5xl text-primary mb-12">
         Frequently Asked Question
       </h3>

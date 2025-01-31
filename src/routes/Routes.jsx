@@ -26,11 +26,14 @@ import AboutUs from "../pages/AboutUs";
 import GuideProfile from "../pages/GuideProfile";
 import ResetPassword from "../pages/ResetPassword";
 import ImageGallery from "../pages/ImageGallary";
+import Redirect from "../components/Redirect";
+import Error from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -78,9 +81,14 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: <DashboardLayout />,
     children: [
-      // user routes
+      // Redirect to appropriate page based on user role
       {
         path: "/dashboard",
+        element: <Redirect />,
+      },
+      // user routes
+      {
+        path: "/dashboard/profile",
         element: (
           <PrivateRoute>
             <Profile />
@@ -184,4 +192,5 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 export default router;

@@ -48,7 +48,7 @@ const Table = ({ data, refetch }) => {
     }
   };
   return (
-    <div className="overflow-x-auto rounded-lg">
+    <div className="overflow-x-auto rounded-lg max-w-[320px] md:max-w-[620px] lg:max-w-full  mx-auto">
       {data && data.length > 0 ? (
         <table className="table table-zebra border-collapse">
           <thead className="bg-secondary text-gray-200 uppercase">
@@ -77,7 +77,6 @@ const Table = ({ data, refetch }) => {
                   <td className="px-4 py-2">{formattedTourDate}</td>
                   <td className="px-4 py-2">{booking.price}</td>
                   <td className="px-4 py-2">
-                    {" "}
                     <span
                       className={`badge ${
                         booking.status === "Pending"

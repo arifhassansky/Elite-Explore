@@ -6,7 +6,7 @@ const MyBookings = () => {
   const [bookings, refetch] = useBookings();
 
   return (
-    <div className="px-16 py-8">
+    <div className="px-2 md:px-12 lg:px-16 py-8">
       {bookings.length > 0 && (
         <>
           <SectionTitle

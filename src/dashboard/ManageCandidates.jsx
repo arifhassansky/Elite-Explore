@@ -121,14 +121,14 @@ const ManageCandidates = () => {
   };
 
   return (
-    <div className="p-12">
+    <div className="p-2 md:p-8 lg:p-12">
       <SectionTitle
         title="Manage Tour Guide applicants"
         subtitle="Review and approve/reject tour guide applicants."
       />
 
-      <div className="overflow-x-auto rounded-lg">
-        <table className="table table-zebra w-full">
+      <div className="overflow-x-auto rounded-lg max-w-[320px] md:max-w-[620px] lg:max-w-full mx-auto">
+        <table className="table table-zebra border-collapse">
           <thead>
             <tr className="bg-secondary text-white">
               <th>Image</th>

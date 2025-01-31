@@ -9,7 +9,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
 const Payment = () => {
   const { id } = useParams();
   return (
-    <div className="p-16">
+    <div className="p-6 md:p-16">
       <SectionTitle
         title="Payment"
         subtitle="Make a Payment to confirm your booking"

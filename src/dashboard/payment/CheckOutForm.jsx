@@ -96,7 +96,7 @@ const CheckOutForm = ({ id }) => {
     <div className="payment-container">
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 fgrid place-items-center"
+        className="space-y-4 md:grid md:place-items-center"
       >
         <CardElement
           options={{
@@ -113,7 +113,7 @@ const CheckOutForm = ({ id }) => {
               },
             },
           }}
-          className="w-1/2 border p-3 rounded-lg shadow-sm"
+          className="md:w-1/2 border p-3 rounded-lg shadow-sm"
         />
 
         <button

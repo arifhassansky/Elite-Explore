@@ -53,8 +53,8 @@ const JoinAsGuide = () => {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="flex items-center gap-3 w-full">
-            <div className="w-1/2">
+          <div className="md:flex items-center gap-3 w-full">
+            <div className="md:w-1/2">
               <label className="block text-lg font-medium text-gray-700 mb-2">
                 Application Title
               </label>
@@ -68,7 +68,7 @@ const JoinAsGuide = () => {
               />
             </div>
 
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <label className="block text-lg font-medium text-gray-700 mb-2">
                 Phone*
               </label>
@@ -83,8 +83,8 @@ const JoinAsGuide = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 w-full">
-            <div className="w-1/2">
+          <div className="md:flex items-center gap-3 w-full">
+            <div className="md:w-1/2">
               <label className="block text-lg font-medium text-gray-700 mb-2">
                 Designation
               </label>
@@ -98,7 +98,7 @@ const JoinAsGuide = () => {
               />
             </div>
 
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <label className="block text-lg font-medium text-gray-700 mb-2">
                 CV Link
               </label>

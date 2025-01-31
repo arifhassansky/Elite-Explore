@@ -68,11 +68,11 @@ const GuideAssignedTours = () => {
   };
 
   return (
-    <div className="p-16">
+    <div className="p-2 md:p-10 lg:p-16">
       <h1 className="text-4xl font-bold mb-6 text-center text-primary">
         My Assigned Tours
       </h1>
-      <div className="overflow-x-auto rounded-lg">
+      <div className="overflow-x-auto rounded-lg max-w-[320px] md:max-w-[620px] lg:max-w-full  mx-auto">
         <table className="table table-zebra w-full ">
           <thead>
             <tr className="bg-secondary text-white ">

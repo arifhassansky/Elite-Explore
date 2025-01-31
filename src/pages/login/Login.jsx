@@ -16,19 +16,49 @@ const Login = () => {
   const location = useLocation();
   const axiosPublic = useAxiosPublic();
 
+  // const handleGoogleLogin = () => {
+  //   googleSignIn().then((res) => {
+  //     console.log(res);
+  //     const userData = {
+  //       name: res?.user?.displayName,
+  //       email: res?.user?.email,
+  //       photo: res?.user?.photoURL,
+  //       role: "user",
+  //       timeStamp: Date.now(),
+  //     };
+
+  //     // Save user to the database
+  //     axiosPublic.post("/users", userData);
+
+  //     // Navigate to the intended page or home
+  //     navigate(location.state?.from || "/");
+  //     toast.success("Login Successful!");
+  //   });
+  // };
+
   const handleGoogleLogin = () => {
-    googleSignIn().then((res) => {
+    googleSignIn().then((result) => {
+      // Extract user info from the result
+      const user = result?.user;
+
+      // Construct user data
       const userData = {
-        name: res?.user?.displayName,
-        email: res?.user?.email,
-        photo: res?.user?.photoURL,
+        name: user.displayName || "Unknown User",
+        email: user.email || "No Email Found",
+        photo: user.photoURL,
         role: "user",
         timeStamp: Date.now(),
       };
 
+      // Check if email is null
+      if (!user.email) {
+        console.error("Email is null. Full user object:", user);
+        toast.error("Unable to fetch email. Please try again.");
+        return;
+      }
+
       // Save user to the database
       axiosPublic.post("/users", userData);
-
       // Navigate to the intended page or home
       navigate(location.state?.from || "/");
       toast.success("Login Successful!");
@@ -37,7 +67,18 @@ const Login = () => {
 
   const handleGithubLogin = () => {
     githubSignIn()
-      .then(() => {
+      .then((res) => {
+        const userData = {
+          name: res?.user?.displayName,
+          email: res?.user?.email,
+          photo: res?.user?.photoURL,
+          role: "user",
+          timeStamp: Date.now(),
+        };
+
+        // Save user to the database
+        axiosPublic.post("/users", userData);
+
         navigate(location.state ? location.state : "/");
         toast.success("Login Successfull!");
       })
@@ -96,7 +137,7 @@ const Login = () => {
               id="email"
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full bg-transparent px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-secondary"
+              className="w-full bg-transparent focus:bg-transparent px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:border-secondary"
             />
           </div>
 

@@ -24,7 +24,13 @@ const AboutUs = () => {
               <h2 className="flex items-center gap-2">
                 <FaLinkedin />
                 <span className="font-bold ">Linkedin:</span>{" "}
-                https://www.linkedin.com/in/arif-hassan-8a4642317
+                <a
+                  className="hover:underline text-green-300"
+                  target="_blank"
+                  href="https://www.linkedin.com/in/arif-hassan-8a4642317"
+                >
+                  arif-hassan-8a4642317
+                </a>
               </h2>
               <h2 className="flex items-center -ml-3">
                 <img
@@ -32,7 +38,13 @@ const AboutUs = () => {
                   src="https://i.ibb.co.com/b15JzW4/github.png"
                 />
                 <span className="font-bold mr-2">Github:</span>
-                https://github.com/arifhassansky
+                <a
+                  className="hover:underline text-green-300"
+                  target="_blank"
+                  href=" https://github.com/arifhassansky"
+                >
+                  arifhassansky
+                </a>
               </h2>
             </div>
 
@@ -44,7 +56,7 @@ const AboutUs = () => {
                 </span>
               </h2>
               <p className="flex items-center text-xl gap-2">
-                <FaWhatsapp />
+                <FaWhatsapp className="text-green-600" />
                 <span className="font-bold">Whatsapp:</span> +8801960606195
               </p>
             </div>

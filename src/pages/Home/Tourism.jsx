@@ -5,6 +5,9 @@ import Card from "../../components/Card";
 import { Link } from "react-router-dom";
 import useGuides from "../../hooks/useGuides";
 import TourGuideCard from "../../components/TourGuideCard";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Tourism = () => {
   const [tours] = useRandomTours();
@@ -14,8 +17,15 @@ const Tourism = () => {
     <Link to={`/details/${id}`}></Link>;
   };
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
-    <section className="bg-gray-100 py-12">
+    <section
+      className="bg-gray-100 py-12"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <div className="w-10/12 mx-auto">
         <h2 className="text-5xl font-bold text-center text-gray-800 mb-8">
           Tourism and Travel Guide

@@ -49,7 +49,7 @@ const Card = ({ tour }) => {
       <div className="p-4 pt-4 flex-col">
         <div className="flex-grow h-44">
           <h3 className="text-lg font-semibold mb-2">{title}</h3>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm">
             {description?.slice(0, 150)}
             <span className="font-semibold cursor-pointer"> more...</span>
           </p>

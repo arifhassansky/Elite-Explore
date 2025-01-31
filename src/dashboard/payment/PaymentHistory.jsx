@@ -18,7 +18,7 @@ const PaymentHistory = () => {
   });
 
   return (
-    <div className="p-16">
+    <div className="px-2 md:px-10 lg:p-16">
       <SectionTitle
         title="Payment History"
         subtitle="Comprehensive History at a Glance"
@@ -28,7 +28,7 @@ const PaymentHistory = () => {
         Total Payment: {payments.length}
       </h2>
 
-      <div className="overflow-x-auto rounded-xl">
+      <div className="overflow-x-auto rounded-xl max-w-[320px] md:max-w-[620px] lg:max-w-full  mx-auto">
         <table className="table table-zebra w-full my-8 ">
           {/* head */}
           <thead>

@@ -52,9 +52,7 @@ const Profile = () => {
       <div className="flex flex-col-reverse md:flex-row justify-center items-center gap-8 p-16 bg-primaryBg">
         <div className="flex flex-col justify-center">
           <p className="text-gray-600 text-lg">Email: {user?.email}</p>
-          <p className="text-gray-600 text-lg mb-4">
-            Role: {user?.role || "User"}
-          </p>
+          <p className="text-gray-600 text-lg mb-4">Role: {user?.role}</p>
 
           <Link onClick={() => setIsModalOpen(true)}>
             <Button text="Edit Profile" />
