@@ -55,7 +55,7 @@ const Accordion = () => {
     <div
       data-aos="fade-up"
       data-aos-duration="1000"
-      className="w-10/12 mx-auto my-20"
+      className="w-11/12 mx-auto my-20"
     >
       <h3 className="font-bold text-center text-3xl md:text-5xl text-primary mb-12">
         Frequently Asked Question

@@ -36,7 +36,7 @@ const TouristStories = () => {
       data-aos-duration="1000"
       className="space-y-8 py-16 bg-gray-100"
     >
-      <div className="w-10/12 mx-auto">
+      <div className="w-11/12 mx-auto">
         <h2 className="text-5xl font-bold text-center mb-20">
           Tourist Stories
         </h2>

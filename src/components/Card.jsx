@@ -54,7 +54,7 @@ const Card = ({ tour }) => {
             <span className="font-semibold cursor-pointer"> more...</span>
           </p>
         </div>
-        <p className="text-lg font-medium text-primary mt-1">৳ {price}</p>
+        <p className="text-lg font-medium text-primary ">৳ {price}</p>
       </div>
     </div>
   );

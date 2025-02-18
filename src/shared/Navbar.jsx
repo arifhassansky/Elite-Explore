@@ -124,7 +124,7 @@ const Navbar = () => {
         scrolled && "backdrop-blur-3xl"
       }`}
     >
-      <div className="navbar w-11/12 mx-auto">
+      <div className="navbar px-0 w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -158,12 +158,8 @@ const Navbar = () => {
             )}
           </div>
           <div className="flex items-center h-14">
-            <a href="/" className="flex-shrink-0">
-              <img
-                className="h-14 w-auto"
-                src={logo}
-                alt="Elite Travels Logo"
-              />
+            <a href="/">
+              <img className="h-14" src={logo} alt="Elite Travels Logo" />
             </a>
             <span
               className={`text-2xl font-semibold transition-all duration-300 ${

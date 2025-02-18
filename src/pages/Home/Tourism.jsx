@@ -26,7 +26,7 @@ const Tourism = () => {
       data-aos="fade-up"
       data-aos-duration="1000"
     >
-      <div className="w-10/12 mx-auto">
+      <div className="w-11/12 mx-auto">
         <h2 className="text-5xl font-bold text-center text-gray-800 mb-8">
           Tourism and Travel Guide
         </h2>
