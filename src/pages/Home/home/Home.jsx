@@ -4,6 +4,7 @@ import EliteAbout from "../EliteAbout";
 import Overview from "../Overview";
 import Tourism from "../Tourism";
 import TouristStories from "../TouristStories";
+import NewsletterForm from "./NewsLetterForm";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <TouristStories />
       <Accordion />
       <EliteAbout />
+      <NewsletterForm />
     </div>
   );
 };
