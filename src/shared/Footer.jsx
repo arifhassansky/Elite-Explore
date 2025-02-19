@@ -1,25 +1,26 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-[#102d5c] text-white pt-16">
-      <div className="container mx-auto px-6 pb-16">
+      <div className="w-11/12 mx-auto px-6 pb-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo and Description */}
           <div>
             <div className="flex items-center h-14">
-              <a href="/" className="flex-shrink-0">
+              <Link to="/" className="flex-shrink-0">
                 <img
                   className="h-14 w-auto"
                   src={logo}
                   alt="Elite Travels Logo"
                 />
-              </a>
+              </Link>
               <span className="text-2xl font-semibold">Elite Explore</span>
             </div>
-            <p className="ml-3 text-lg">
+            <p className="ml-3 text-lg text-justify">
               Experience the finest rooms for your relaxation. Join Roomify for
-              a luxurious stay and unmatched comfort.
+              a luxurious stay and relax.
             </p>
           </div>
 
@@ -30,37 +31,37 @@ const Footer = () => {
             </h3>
             <ul>
               <li>
-                <a
-                  href="/trips"
+                <Link
+                  to="/trips"
                   className="hover:text-primary transition duration-300"
                 >
                   Trip
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="/gallery"
+                <Link
+                  to="/gallery"
                   className="hover:text-primary transition duration-300"
                 >
                   Gallery
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/about"
+                <Link
+                  to="/about"
                   className="hover:text-primary transition duration-300"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/community"
+                <Link
+                  to="/community"
                   className="hover:text-primary transition duration-300"
                 >
                   Community
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -72,7 +73,7 @@ const Footer = () => {
             </h3>
             <div className="flex mt-2 gap-2">
               <a
-                href="https://www.facebook.com/arifhearthacker/"
+                to="https://www.facebook.com/arifhearthacker/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-110"
@@ -84,7 +85,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://x.com/arifskypro"
+                to="https://x.com/arifskypro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-110"
@@ -96,7 +97,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://www.linkedin.com/in/arif-hassan-8a4642317"
+                to="https://www.linkedin.com/in/arif-hassan-8a4642317"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-110"
@@ -108,7 +109,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://github.com/arifhassansky"
+                to="https://github.com/arifhassansky"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-110"
