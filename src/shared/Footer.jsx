@@ -34,7 +34,7 @@ const Footer = () => {
                   href="/trips"
                   className="hover:text-primary transition duration-300"
                 >
-                  Trips
+                  Trip
                 </a>
               </li>
 
